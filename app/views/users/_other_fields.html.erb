@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.input :experience, collection: 1..50, label: "Experience (years)", class: 'form-control' %>
+  <%= f.input :kind, label: "Please provide some details of role", class: 'form-control' %>
+  <%= link_to_remove_association "Remove", f,  class: "btn btn-danger btn-xs Component" %>
+</div>

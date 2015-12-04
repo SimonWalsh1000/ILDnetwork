@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.input :experience, collection: 1..50, label: "Radiologist experience (years)", class: 'form-control' %>
+  <%= f.input :kind, collection: [ "Thoracic radiologist (fellowship trained)", "General radiologist with an interest in thoracic imaging", "General radiologist"] , label: "Type", class: 'form-control' %>
+  <%= link_to_remove_association "Remove radiologist", f,  class: "btn btn-danger btn-xs Component" %>
+</div>

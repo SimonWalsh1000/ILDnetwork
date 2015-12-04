@@ -1,0 +1,145 @@
+<div class="row content">
+
+  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+
+
+    <%= flash_messages @user %>
+
+
+    <%= simple_form_for(@user, html: { :class => 'form-horizontal'} ) do |f| %>
+
+        <div class="page-header">
+          <h3>Intersitial lung disease evaluation
+            <%= f.submit "Submit your data", class: "btn btn-primary SubmitData" %></h3>
+        </div>
+
+
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+        <div class = "row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-header">
+                  <h3>A. MDT location <br/><small> Please answer all questions</small></h3>
+                </div>
+            </div>
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+              <div class="field">
+                <%= f.input :institute, label: "Name of institution", class: 'form-control' %>
+              </div><br/>
+                <div class="field">
+                  <%= f.input :institute_type, collection: ["University hospital", "Non-university hospital", "Private"] , label: "Insitution type", class: 'form-control'%>
+                </div><br/>
+                <div class="field">
+                  <%= f.input :country, as: :country, priority: [ "United Kingdom" ], format: :with_alpha2 %>
+                </div>
+            </div>
+        </div>
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+        <div class = "row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-header">
+                  <h3>B. MDT inputs<br/><small> Please answer all questions. To add a member, click on relevant specialty and add details in the created fields. <b>"Add new participant"</b> is for
+                  adding a specialty that's not listed e.g. a geneticist, or ILD nurse. Please give details of this participant in the free text field created when
+                    you press <b>"Add new participant"</b></small></h3>
+                </div>
+            </div>
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
+
+                  <div class="field">
+                    <%= f.input :specialist, collection: ["ILD dedicated MDT", "General respiratory MDT"] , label: "MDT type", class: 'form-control'%>
+                  </div><br/>
+
+
+                  <%= f.simple_fields_for :physicians do |physician| %>
+                      <%= render 'physician_fields', f: physician %>
+                  <% end %>
+                  <div class="links">
+                    <%= link_to_add_association 'Add physician', f, :physicians, class: "btn btn-primary Component" %>
+                  </div>
+
+                  <%= f.simple_fields_for :rads do |rad| %>
+                      <%= render 'rad_fields', f: rad %>
+                  <% end %>
+                  <div class="links">
+                    <%= link_to_add_association 'Add radiologist', f, :rads, class: "btn btn-info Component" %>
+                  </div>
+
+                  <%= f.simple_fields_for :paths do |path| %>
+                      <%= render 'rad_fields', f: path %>
+                  <% end %>
+                  <div class="links">
+                    <%= link_to_add_association 'Add pathologist', f, :paths, class: "btn btn-success Component" %>
+                  </div>
+
+                  <%= f.simple_fields_for :rheumatologists do |rheumatologist| %>
+                      <%= render 'rheumatologist_fields', f: rheumatologist %>
+                  <% end %>
+                  <div class="links">
+                    <%= link_to_add_association 'Add rheumatologist', f, :rheumatologists, class: "btn btn-primary Component" %>
+                  </div>
+
+                  <%= f.simple_fields_for :others do |other| %>
+                      <%= render 'other_fields', f: other %>
+                  <% end %>
+                  <div class="links">
+                    <%= link_to_add_association 'Add new participant', f, :others, class: "btn btn-info Component" %>
+                  </div>
+
+
+            </div>
+        </div>
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <div class = "row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="page-header">
+            <h3>C. MDT case mix<br/><small> Please answer all questions</small></h3>
+           </div>
+          </div>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class = "CaseMixInputs">
+                  <div class="field">
+                    <%= f.input :schedule, collection: [ "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"] , label: "Frequency of MDT meeting", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :cases, collection: 0..50, label: "Number of new cases of ILD per month", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :ipf, collection: 0..50, label: "Number of new cases of IPF per month", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :nonild, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Non-ILD", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :ipfpatients, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%IPF", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :hppatients, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Hypersensitivity pneumonitis", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :sarcoidpatients, collection: [0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Sarcoidosis", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :iippatients, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Non-IPF IIP", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :ctdpatients, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Connective tissue disease related ILD", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :unclasspatients, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Unclassifiable ILD", class: 'form-control' %>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+            <%= f.submit "Submit your data", class: "btn btn-primary SubmitData" %></h3>
+        </div>
+    <% end %>
+  </div>
+</div>

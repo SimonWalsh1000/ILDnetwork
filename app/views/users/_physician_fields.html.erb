@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.input :experience, collection: 1..50, label: "Physician experience (years)", class: 'form-control' %>
+  <%= f.input :kind, collection: [ "Pulmonologist (fellowship trained)", "General physician with an interest in pulmonology", "General physician"] , label: "Type", class: 'form-control' %>
+  <%= link_to_remove_association "Remove physician", f,  class: "btn btn-danger btn-xs Component" %>
+</div>

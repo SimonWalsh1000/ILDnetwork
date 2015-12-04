@@ -1,0 +1,2 @@
+module RheumatologistsHelper
+end

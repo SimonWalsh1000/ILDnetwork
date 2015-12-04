@@ -1,0 +1,99 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "mixins";
+
+
+.Logo {
+  font-size: 1.6em !important;
+}
+
+.SubmitData {
+  float: right;
+}
+
+.EditData{
+  color: $white !important;
+  float: right;
+  a {
+    color: $white !important;
+  }
+  a:visited {
+    color: $white !important;
+  }
+}
+
+
+.Component {
+  margin: 5px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.DetailsBlock {
+  padding: 15px 0px;
+  clear: both;
+}
+
+
+.MemberList {
+  padding-left: 0px;
+  list-style: none;
+  display: block;
+  min-height: 100px;
+  height: auto;
+
+  li {
+    padding: 5px;
+    margin: 10px;
+    width: 150px;
+    height: 250px;
+    float:left;
+    text-align: center;
+    img {
+      text-align: center;
+    }
+  }
+}
+
+.ChartHolder {
+  margin: 30px 0px;
+}
+
+.page-header {
+  margin: 30px 0px 10px !important;
+}
+
+.CheckboxInputs{
+  font-size: 1.1em;
+}
+
+
+.CaseMixInputs {
+  padding: 0px 15px;
+  border-bottom: 1px solid $border-grey;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  .form-control {
+    float: right !important;
+    width: 20% !important;
+  }
+}
+
+
+.UserInputs {
+  margin: 50px 0px;
+}
+
+.MapContainer {
+  margin: 50px 0px 100px 0px;
+}
+
+.Label {
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 30px 0px 10px 0px;
+}
+
+

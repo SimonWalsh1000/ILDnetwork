@@ -1,0 +1,157 @@
+<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+
+  <div class = "DetailsBlock">
+    <div class="page-header">
+      <h4>MDT location
+
+        <%= link_to 'Edit details', edit_user_path(@user), class: "btn btn-primary EditData" %></h3>
+
+        <br/></h4>
+    </div>
+    <p>
+      <strong>Name of institution:</strong>
+      <%= @user.institute %>
+    </p>
+    <p>
+      <strong>Institute type:</strong>
+      <%= @user.institute_type %>
+    </p>
+
+    <p>
+      <strong>Country:</strong>
+      <%= @user.country %>
+    </p>
+
+    <p>
+      <strong>Meeting:</strong>
+      <%= @user.specialist %>
+    </p>
+
+    <p>
+      <strong>Frequency:</strong>
+      <%= @user.schedule %>
+    </p>
+
+
+  </div>
+
+  <% unless @cases.blank? %>
+      <div class="page-header">
+        <h4>MDT case  mix<br/></h4>
+      </div>
+      <div class = "ChartHolder">
+        <div id ="chart"></div>
+      </div>
+  <% end %>
+
+  <div class="page-header">
+    <h4>MDT inputs<br/></h4>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class = "MemberBlock">
+            <ul class = "MemberList">
+            <% @user.physicians.each do |phys| %>
+                    <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %>
+                    <div class = "Holder">
+                    <h4>Physician</h4>
+                    <%= phys.experience %> years experience<br/>
+                    <%= phys.kind %></div>
+                    </li>
+            <% end %>
+
+            <% @user.rads.each do |rad| %>
+                <li><%= image_tag "Radiologist.png", :style => "width:100px; height:auto;" %>
+                  <div class = "Holder">
+                  <h4>Radiologist</h4>
+                  <%= rad.experience %> years experience<br/>
+                    <%= rad.kind %></div>
+                </li>
+            <% end %>
+
+            <% @user.paths.each do |path| %>
+                <li><%= image_tag "Pathologist.png", :style => "width:100px; height:auto;" %>
+                  <div class = "Holder">
+                  <h4>Pathologist</h4>
+                  <%= path.experience %> years experience<br/>
+                    <%= path.kind %></div>
+                </li>
+            <% end %>
+
+              <% @user.rheumatologists.each do |r| %>
+                  <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %>
+                    <div class = "Holder">
+                      <h4>Rheumatologist</h4>
+                      <%= r.experience %> years experience<br/>
+                      <%= r.kind %></div>
+                  </li>
+              <% end %>
+
+              <% @user.others.each do |o| %>
+                  <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %>
+                    <div class = "Holder">
+                      <h4>Participant</h4>
+                      <%= o.experience %> years experience<br/>
+                      <%= o.kind.truncate(27, separator: ' ') %></div>
+                  </li>
+              <% end %>
+          </ul>
+        </div>
+  </div>
+
+<%= link_to 'Edit details', edit_user_path(@user), class: "btn btn-primary EditData" %></h3>
+
+
+
+</div>
+
+<script>
+
+
+    $(document).ready(function () {
+
+
+        var data =  <%= raw @cases %>
+
+
+        $('#chart').highcharts({
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: 'Proportion: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: data
+            }]
+        });
+    });
+
+
+
+
+</script>
