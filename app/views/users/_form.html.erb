@@ -142,7 +142,7 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class = "CaseMixInputs">
                   <div class="field">
-                    <%= f.input :schedule, collection: [ "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"] , label: "Frequency of MDT meeting", class: 'form-control' %>
+                    <%= f.input :schedule, collection: [ "Sporadically", "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"] , label: "Frequency of MDT meeting", class: 'form-control' %>
                   </div>
                   <div class="field">
                     <%= f.input :cases, collection: 0..50, label: "Number of new cases of ILD per year (approx)", class: 'form-control' %>
