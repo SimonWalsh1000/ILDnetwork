@@ -52,28 +52,39 @@ class User < ActiveRecord::Base
 
   before_save :country_name
 
-  validate :disease_proportions, :on => :update
+  # validate :disease_proportions, :on => :update
+  #
+  # validate :user_practice, :on => :update
+  #
+  # validates :institute_type, presence: true, :on => :update
+  #
+  # validates :institute, presence: true, :on => :update
+  #
+  # validates :cases, presence: true, :on => :update
+  #
+  # validates :ipf, presence: true, :on => :update
 
-  # validate :check_minimum_info, :on => :update
+  def user_practice
+    if self.solo.nil? || self.mdt.nil? || self.refer.nil?
+      errors.add(:base, 'Please answer the diagnosis practices question')
+    end
+  end
 
-  validates :institute_type, presence: true, :on => :update
-
-  validates :institute, presence: true, :on => :update
-
-  validates :cases, presence: true, :on => :update
-
-  validates :ipf, presence: true, :on => :update
+  def practice_to_string
+    if self.practice == "1"
+      'By myself with the aid of diagnostic guidelines'
+    elsif self.practice == "2"
+      'Via a face-to-face MDT discussion'
+    elsif self.practice == "3"
+      'Through referral to an expert/academic ILD centre'
+    end
+  end
 
   def disease_proportions
     disease_array = [ self.nonild, self.ipfpatients, self.hppatients, self.sarcoidpatients, self.iippatients, self.ctdpatients, self.unclasspatients]
     compact_disease_array = disease_array.compact
     compact_disease_array.inject{|sum,x| sum + x } == 100 ? true : errors.add(:base, 'Disease proportions must add up to 100%')
   end
-
-  def check_minimum_info
-    errors.add(:base, 'You need to provide at least 1 physician') unless self.physicians.count > 0
-  end
-
 
   def country_name
     if self.country.present?

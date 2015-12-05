@@ -31,6 +31,12 @@
   margin-bottom: 20px;
 }
 
+.links {
+  border-bottom: 2px solid $border-grey;
+  margin-bottom: 20px;
+}
+
+
 .DetailsBlock {
   padding: 15px 0px;
   clear: both;
@@ -95,5 +101,32 @@
   font-weight: 600;
   padding: 30px 0px 10px 0px;
 }
+
+.form-group {
+  margin: 0px auto !important;
+  max-width: 100% !important;
+}
+
+.RadioBlock {
+  display: block;
+  font-size: 1.2em;
+  padding: 5px 0px;
+
+  label {
+    font-weight: 600 !important;
+  }
+  input[type = "radio"] {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
+
+
+
+
+
+
+
 
 

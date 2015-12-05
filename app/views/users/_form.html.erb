@@ -9,9 +9,31 @@
     <%= simple_form_for(@user, html: { :class => 'form-horizontal'} ) do |f| %>
 
         <div class="page-header">
-          <h3>Intersitial lung disease evaluation
-            <%= f.submit "Submit your data", class: "btn btn-primary SubmitData" %></h3>
+          <h2>Intersitial lung disease evaluation
+            <%= f.submit "Submit your data", class: "btn btn-primary SubmitData" %></h2>
         </div>
+
+
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+    <div class = "row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="page-header">
+              <h3>A. Which best describes your diagnostic approach to IPF <br/><small> Please select one option</small></h3>
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 Radio">
+          <div class="field">
+          <%= f.collection_radio_buttons :practice, [[1, 'By myself with the aid of diagnostic guidelines'],
+                                                 [2, 'Via a face-to-face MDT discussion'],
+                                                 [3, 'Through referral to an expert/academic ILD centre']],
+                                         :first,
+                                         :last,
+                                         :item_wrapper_class => 'RadioBlock'%>
+          </div>
+        </div>
+    </div>
 
 
 
@@ -20,19 +42,34 @@
         <div class = "row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-header">
-                  <h3>A. MDT location <br/><small> Please answer all questions</small></h3>
+                  <h3>B. Your details <br/><small> Please answer all questions</small></h3>
                 </div>
             </div>
+
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
+              <div class="field">
+                <%= f.input :kind, collection: [ "Pulmonologist (fellowship trained)", "General physician with an interest in pulmonology", "General physician",
+                                                 "Thoracic radiologist (fellowship trained)", "General radiologist with an interest in thoracic imaging", "General radiologist",
+                                                 "Pulmonary pathologist (fellowship trained)", "General pathologist with an interest in pulmonary pathology", "General pathologist"] , label: "Which best describes your role?", class: 'form-control' %>
+              </div><br/>
+
+              <div class="field">
+                <%= f.input :experience, collection: 1..50, label: "Experience (years)", class: 'form-control' %>
+              </div><br/>
+
               <div class="field">
                 <%= f.input :institute, label: "Name of institution", class: 'form-control' %>
               </div><br/>
+
                 <div class="field">
                   <%= f.input :institute_type, collection: ["University hospital", "Non-university hospital", "Private"] , label: "Insitution type", class: 'form-control'%>
                 </div><br/>
+
                 <div class="field">
                   <%= f.input :country, as: :country, priority: [ "United Kingdom" ], format: :with_alpha2 %>
                 </div>
+
             </div>
         </div>
 
@@ -41,18 +78,17 @@
         <div class = "row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-header">
-                  <h3>B. MDT inputs<br/><small> Please answer all questions. To add a member, click on relevant specialty and add details in the created fields. <b>"Add new participant"</b> is for
+                  <h3>C. MDT inputs<br/><small> Please answer all questions. To add a member, click on relevant specialty and add details in the created fields. <b>"Add new participant"</b> is for
                   adding a specialty that's not listed e.g. a geneticist, or ILD nurse. Please give details of this participant in the free text field created when
                     you press <b>"Add new participant"</b></small></h3>
                 </div>
             </div>
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 NoPadding">
 
 
                   <div class="field">
                     <%= f.input :specialist, collection: ["ILD dedicated MDT", "General respiratory MDT"] , label: "MDT type", class: 'form-control'%>
                   </div><br/>
-
 
                   <%= f.simple_fields_for :physicians do |physician| %>
                       <%= render 'physician_fields', f: physician %>
@@ -97,7 +133,9 @@
         <div class = "row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
            <div class="page-header">
-            <h3>C. MDT case mix<br/><small> Please answer all questions</small></h3>
+            <h3>D. MDT case mix<br/><small> Please answer all questions. Note that there are no default values. If your
+            answer is "0" then you must explictly select "0". This is to ensure all questions are considered. "%" means an estimate of
+            the proportion of cases seen by your MDT (or you, if you do not have a dedicated MDT) with each diagnosis. </small></h3>
            </div>
           </div>
 
@@ -107,10 +145,16 @@
                     <%= f.input :schedule, collection: [ "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"] , label: "Frequency of MDT meeting", class: 'form-control' %>
                   </div>
                   <div class="field">
-                    <%= f.input :cases, collection: 0..50, label: "Number of new cases of ILD per month", class: 'form-control' %>
+                    <%= f.input :cases, collection: 0..50, label: "Number of new cases of ILD per year (approx)", class: 'form-control' %>
                   </div>
                   <div class="field">
-                    <%= f.input :ipf, collection: 0..50, label: "Number of new cases of IPF per month", class: 'form-control' %>
+                    <%= f.input :ipf, collection: 0..50, label: "Number of new cases of IPF per year (approx)", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :biopsy, collection: 0..50, label: "Percentage of patients biopsied (approx)", class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                    <%= f.input :cryobiopsy, collection: ["Yes", "No"], label: "Availability of cryobiopsy", class: 'form-control' %>
                   </div>
                   <div class="field">
                     <%= f.input :nonild, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Non-ILD", class: 'form-control' %>

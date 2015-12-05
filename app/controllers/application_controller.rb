@@ -7,16 +7,6 @@ class ApplicationController < ActionController::Base
   before_action :current_user
 
 
-  # before_action :check_user_interests
-  #
-  # def check_user_interests
-  #   if member_signed_in?
-  #     if current_user.tag_list.count < 5
-  #       @sign_up = true
-  #     end
-  #   end
-  # end
-
 
   def current_user
     if member_signed_in?

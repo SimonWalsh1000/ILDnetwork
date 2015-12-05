@@ -2,12 +2,24 @@
 
   <div class = "DetailsBlock">
     <div class="page-header">
-      <h4>MDT location
+      <h4>Basic information
 
         <%= link_to 'Edit details', edit_user_path(@user), class: "btn btn-primary EditData" %></h3>
 
         <br/></h4>
     </div>
+
+    <p>
+      <strong>Role of registrant</strong>
+      <%= @user.kind %>
+    </p>
+
+    <p>
+      <strong>Experience of registrant:</strong>
+      <%= @user.experience %>
+    </p>
+
+
     <p>
       <strong>Name of institution:</strong>
       <%= @user.institute %>
@@ -32,12 +44,36 @@
       <%= @user.schedule %>
     </p>
 
+    <p>
+      <strong>New ILD cases/year:</strong>
+      <%= @user.cases %>
+    </p>
+
+    <p>
+      <strong>New IPF cases/year:</strong>
+      <%= @user.ipf%>
+    </p>
+
+    <p>
+      <strong>Biopsy rate (%):</strong>
+      <%= @user.biopsy %>
+    </p>
+
+    <p>
+      <strong>Availability of cryobiopsy:</strong>
+      <%= @user.cryobiopsy %>
+    </p>
+
+    <p>
+      <strong>Diagnostic approach for IPF:</strong>
+      <%= @user.practice_to_string %>
+    </p>
 
   </div>
 
   <% unless @cases.blank? %>
       <div class="page-header">
-        <h4>MDT case  mix<br/></h4>
+        <h4>MDT ILD case referral mix<br/></h4>
       </div>
       <div class = "ChartHolder">
         <div id ="chart"></div>

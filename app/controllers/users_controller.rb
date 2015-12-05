@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :network]
-  before_action :check_complete, only: [:show, :network]
+  # before_action :check_complete, only: [:show, :network]
 
   # GET /users
   # GET /users.json
@@ -130,8 +130,25 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nonild, :specialist, :ipfpatients, :hppatients, :sarcoidpatients, :iippatients, :ctdpatients, :unclasspatients,
-                                   :country, :institute, :ipf, :institute_type, :schedule, :cases,
+      params.require(:user).permit(:experience,
+                                   :kind,
+                                   :practice,
+                                   :biopsy,
+                                   :cryobiopsy,
+                                   :nonild,
+                                   :specialist,
+                                   :ipfpatients,
+                                   :hppatients,
+                                   :sarcoidpatients,
+                                   :iippatients,
+                                   :ctdpatients,
+                                   :unclasspatients,
+                                   :country,
+                                   :institute,
+                                   :ipf,
+                                   :institute_type,
+                                   :schedule,
+                                   :cases,
                                    rads_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    paths_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    rheumatologists_attributes: [:user_id, :experience, :kind, :id, :_destroy],

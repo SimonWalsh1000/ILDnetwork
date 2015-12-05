@@ -1,4 +1,7 @@
 <div class="nested-fields">
+  <div class="page-header">
+    <h3>Pathologist</h3>
+  </div>
   <%= f.input :experience, collection: 1..50, label: "Pathologist experience (years)", class: 'form-control' %>
   <%= f.input :kind, collection: [ "Pulmonary pathologist (fellowship trained)", "General pathologist with an interest in pulmonary pathology", "General pathologist"] , label: "Type", class: 'form-control' %>
   <%= link_to_remove_association "Remove pathologist", f,  class: "btn btn-danger btn-xs Component" %>

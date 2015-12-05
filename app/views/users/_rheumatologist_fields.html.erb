@@ -1,4 +1,7 @@
 <div class="nested-fields">
+  <div class="page-header">
+    <h3>Rheumatologist</h3>
+  </div>
   <%= f.input :experience, collection: 1..50, label: "Rheumatologist experience (years)", class: 'form-control' %>
   <%= f.input :kind, collection: [ "Rheumatologist with an interest in intersitial lung disease", "General rheumatologist"] , label: "Type", class: 'form-control' %>
   <%= link_to_remove_association "Remove rheumatologist", f,  class: "btn btn-danger btn-xs Component" %>
