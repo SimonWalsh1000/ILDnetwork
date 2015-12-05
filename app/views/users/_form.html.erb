@@ -145,13 +145,13 @@
                     <%= f.input :schedule, collection: [ "Sporadically", "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"] , label: "Frequency of MDT meeting", class: 'form-control' %>
                   </div>
                   <div class="field">
-                    <%= f.input :cases, collection: 0..50, label: "Number of new cases of ILD per year (approx)", class: 'form-control' %>
+                    <%= f.input :cases, collection: 0..500, label: "Number of new cases of ILD per year (approx)", class: 'form-control' %>
                   </div>
                   <div class="field">
-                    <%= f.input :ipf, collection: 0..50, label: "Number of new cases of IPF per year (approx)", class: 'form-control' %>
+                    <%= f.input :ipf, collection: 0..250, label: "Number of new cases of IPF per year (approx)", class: 'form-control' %>
                   </div>
                   <div class="field">
-                    <%= f.input :biopsy, collection: 0..50, label: "Percentage of patients biopsied (approx)", class: 'form-control' %>
+                    <%= f.input :biopsy, collection: 0..100, label: "Percentage of patients biopsied (approx)", class: 'form-control' %>
                   </div>
                   <div class="field">
                     <%= f.input :cryobiopsy, collection: ["Yes", "No"], label: "Availability of cryobiopsy", class: 'form-control' %>
