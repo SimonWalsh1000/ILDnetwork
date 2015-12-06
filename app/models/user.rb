@@ -92,6 +92,8 @@ class User < ActiveRecord::Base
 
   validate :user_other, :on => :update
 
+  validate :check_participants, :on => :update
+
 
   def user_practice
     errors.add(:base, 'You need to answer question A."How do you diagnose IPF?"') if self.practice.nil?
@@ -166,8 +168,46 @@ class User < ActiveRecord::Base
   end
 
 
+  def check_rads
+    if self.rads
+      self.rads.each do |rad|
+        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
+      end
+    end
+  end
+
+  def check_paths
+    if self.paths
+      self.paths.each do |path|
+        errors.add(:base, 'You must add type and experience of each radiologist') if path.kind.nil? || path.experience.nil?
+      end
+    end
+  end
+
+  def check_phys
+    if self.phys
+      self.phys.each do |rad|
+        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
+      end
+    end
+  end
 
 
+  def check_rheumatologists
+    if self.rads
+      self.rads.each do |rad|
+        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
+      end
+    end
+  end
+
+  def check_others
+    if self.rads
+      self.rads.each do |rad|
+        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
+      end
+    end
+  end
 
 
 

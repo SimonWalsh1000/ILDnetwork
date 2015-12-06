@@ -109,7 +109,7 @@
                   </div>
 
                   <%= f.simple_fields_for :paths do |path| %>
-                      <%= render 'rad_fields', f: path %>
+                      <%= render 'path_fields', f: path %>
                   <% end %>
                   <div class="links">
                     <%= link_to_add_association 'Add pathologist', f, :paths, class: "btn btn-success Component" %>
