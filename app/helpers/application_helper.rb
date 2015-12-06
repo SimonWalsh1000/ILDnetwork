@@ -10,17 +10,17 @@ module ApplicationHelper
 
 
   def flash_messages user
-    # if user.errors.full_messages.size > 0
-    #   messages = user.errors.full_messages.uniq.map { |msg| content_tag(:li, msg) }.join
-    #   html = <<-HTML
-    #     <div class="alert alert-danger">
-    #         <a href="#" data-dismiss="alert" class="close">×</a>
-    #       <ul>
-    #         #{messages}
-    #       </ul>
-    #      </div>
-    #   HTML
-    #   html.html_safe
-    # end
+    if user.errors.full_messages.size > 0
+      messages = user.errors.full_messages.uniq.map { |msg| content_tag(:li, msg) }.join
+      html = <<-HTML
+        <div class="alert alert-danger">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+          <ul>
+            #{messages}
+          </ul>
+         </div>
+      HTML
+      html.html_safe
+    end
   end
 end

@@ -11,6 +11,7 @@
 
 .SubmitData {
   float: right;
+  margin-right: 15px;
 }
 
 .EditData{
@@ -78,12 +79,15 @@
 
 .CaseMixInputs {
   padding: 0px 15px;
-  border-bottom: 1px solid $border-grey;
   margin-bottom: 20px;
   font-size: 1.1em;
   .form-control {
     float: right !important;
     width: 20% !important;
+  }
+
+  .text {
+    display: block !important;
   }
 }
 
@@ -120,6 +124,43 @@
   }
 }
 
+
+@media (max-width: 991px) {
+
+  .CaseMixInputs {
+    padding: 0px 15px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    .form-control {
+      float: right !important;
+      width: 20% !important;
+    }
+
+    .text {
+      display: block !important;
+    }
+  }
+
+  .page-header {
+    h2 {
+      font-size: 1.4em;
+    }
+    h3 {
+      font-size: 1.4em;
+    }
+
+  }
+
+  .RadioBlock {
+    font-size: 1em;
+  }
+
+  .form-group {
+    max-width: 100% !important;
+  }
+
+
+}
 
 
 

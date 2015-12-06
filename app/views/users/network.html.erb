@@ -4,7 +4,7 @@
 <div class="row">
   <div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
     <div class = "UserTally">
-      Current Membership:<%= @user_count %>
+      Number of groups:<%= @user_count %>
     </div>
 
     <div class = "MapContainer">
@@ -106,7 +106,7 @@
                         mapData: Highcharts.maps['custom/world'],
                         joinBy: ['iso-a2', 'code'],
                         showInLegend: false,
-                        name: 'Membership',
+                        name: 'Groups',
                         states: {
                             hover: {
                                 color: '#BADA55'

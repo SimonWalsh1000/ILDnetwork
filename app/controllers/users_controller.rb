@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user.ctdpatients.nil? ? ctdpatients = 0 : ctdpatients = @user.ctdpatients
     @user.unclasspatients.nil? ? unclasspatients = 0 : unclasspatients = @user.unclasspatients
     @user.hppatients.nil? ? hppatients = 0 : hppatients = @user.hppatients
+    @user.other.nil? ? other = 0 : other = @user.other
 
     @cases = [['Non-ILD', nonild],
               ['IPF', ipfpatients],
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
               ['Non-IPF IIP', iippatients],
               ['CTDs', ctdpatients],
               ['Unclassifiable', unclasspatients],
-              ['Hypersensitivity pneumonitis', hppatients]]
+              ['Hypersensitivity pneumonitis', hppatients],
+              ['Other', other]]
 
     @cases = @cases.reject {|a| a[1] == 0 }
   end
@@ -143,6 +145,7 @@ class UsersController < ApplicationController
                                    :iippatients,
                                    :ctdpatients,
                                    :unclasspatients,
+                                   :other,
                                    :country,
                                    :institute,
                                    :ipf,

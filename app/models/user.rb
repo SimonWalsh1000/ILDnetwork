@@ -52,23 +52,124 @@ class User < ActiveRecord::Base
 
   before_save :country_name
 
-  # validate :disease_proportions, :on => :update
-  #
-  # validate :user_practice, :on => :update
-  #
-  # validates :institute_type, presence: true, :on => :update
-  #
-  # validates :institute, presence: true, :on => :update
-  #
-  # validates :cases, presence: true, :on => :update
-  #
-  # validates :ipf, presence: true, :on => :update
+  validate :user_practice, :on => :update
+
+  validate :user_role, :on => :update
+
+  validate :user_experience, :on => :update
+
+  validate :user_institution, :on => :update
+
+  validate :user_institution_type, :on => :update
+
+  validate :user_specialist, :on => :update
+
+  validate :disease_proportions, :on => :update
+
+  validate :user_specialist, :on => :update
+
+  validate :user_cases, :on => :update
+
+  validate :user_ipf, :on => :update
+
+  validate :user_biopsy, :on => :update
+
+  validate :user_cryobiopsy, :on => :update
+
+  validate :user_nonild, :on => :update
+
+  validate :user_ipfpatients, :on => :update
+
+  validate :user_hppatients, :on => :update
+
+  validate :user_sarcoidpatients, :on => :update
+
+  validate :user_iippatients, :on => :update
+
+  validate :user_ctdpatients, :on => :update
+
+  validate :user_unclasspatients, :on => :update
+
+  validate :user_other, :on => :update
+
 
   def user_practice
-    if self.solo.nil? || self.mdt.nil? || self.refer.nil?
-      errors.add(:base, 'Please answer the diagnosis practices question')
-    end
+    errors.add(:base, 'You need to answer question A."How do you diagnose IPF?"') if self.practice.nil?
   end
+
+  def user_role
+    errors.add(:base, 'You need to answer Section B."Which best describes your role?"') if self.kind.blank?
+  end
+
+  def user_experience
+    errors.add(:base, 'You need to answer Section B."How many years experience do you have in this role?"') if self.experience.nil?
+  end
+
+  def user_institution
+    errors.add(:base, 'You need to answer Section B."What is the name of your institution?"') if self.institute.blank?
+  end
+
+  def user_institution_type
+    errors.add(:base, 'You need to answer Section B."What type of institution is this?"') if self.institute_type.blank?
+  end
+
+  def user_specialist
+    errors.add(:base, 'You need to answer Section C."Which best describes your MDT meeting?"') if self.specialist.blank?
+  end
+
+  def user_cases
+    errors.add(:base, 'You need to answer Section D."Number of new cases of ILD per month (approx)?"') if self.cases.blank?
+  end
+
+  def user_ipf
+    errors.add(:base, 'You need to answer Section D."Number of new cases of IPF per month (approx)"') if self.ipf.blank?
+  end
+
+  def user_biopsy
+    errors.add(:base, 'You need to answer Section D."Percentage of patients biopsied (approx)"') if self.biopsy.blank?
+  end
+
+  def user_cryobiopsy
+    errors.add(:base, 'You need to answer Section D."Availability of cryobiopsy"') if self.cryobiopsy.blank?
+  end
+
+  def user_nonild
+    errors.add(:base, 'You need to answer Section D."Proportion of non-ILD patients (0 if you see none)"') if self.nonild.blank?
+  end
+
+  def user_iippatients
+    errors.add(:base, 'You need to answer Section D."Proportion of non-IPF IIP patients (0 if you see none)"') if self.iippatients.blank?
+  end
+
+  def user_ipfpatients
+    errors.add(:base, 'You need to answer Section D."Proportion of IPF patients (0 if you see none)"') if self.ipfpatients.blank?
+  end
+
+  def user_hppatients
+    errors.add(:base, 'You need to answer Section D."Proportion of HP patients (0 if you see none)"') if self.hppatients.blank?
+  end
+
+  def user_sarcoidpatients
+    errors.add(:base, 'You need to answer Section D."Proportion of sarcoidosis patients (0 if you see none)"') if self.sarcoidpatients.blank?
+  end
+
+  def user_ctdpatients
+    errors.add(:base, 'You need to answer Section D."Proportion of CTD-ILD patients (0 if you see none)"') if self.ctdpatients.blank?
+  end
+
+  def user_unclasspatients
+    errors.add(:base, 'You need to answer Section D."Proportion of unclassifiable ILD patients (0 if you see none)"') if self.unclasspatients.blank?
+  end
+
+  def user_other
+    errors.add(:base, 'You need to answer Section D."Proportion of other patients (select 0 if not applicable)"') if self.other.blank?
+  end
+
+
+
+
+
+
 
   def practice_to_string
     if self.practice == "1"
@@ -81,9 +182,9 @@ class User < ActiveRecord::Base
   end
 
   def disease_proportions
-    disease_array = [ self.nonild, self.ipfpatients, self.hppatients, self.sarcoidpatients, self.iippatients, self.ctdpatients, self.unclasspatients]
+    disease_array = [ self.nonild, self.ipfpatients, self.hppatients, self.sarcoidpatients, self.iippatients, self.ctdpatients, self.unclasspatients, self.other]
     compact_disease_array = disease_array.compact
-    compact_disease_array.inject{|sum,x| sum + x } == 100 ? true : errors.add(:base, 'Disease proportions must add up to 100%')
+    compact_disease_array.inject{|sum,x| sum + x } == 100 ? true : errors.add(:base, 'Section D. Disease proportions must add up to 100%')
   end
 
   def country_name
