@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
   end
 
   def user_role
-    errors.add(:base, 'You need to answer Section B."Which best describes your role?"') if self.kind.blank?
+    errors.add(:base, 'You need to answer Section B."Which best describes your position?"') if self.kind.blank?
   end
 
   def user_experience
