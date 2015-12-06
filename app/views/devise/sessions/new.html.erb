@@ -24,7 +24,7 @@
           </label>
         </div>
         <% end %>
-      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary" %>
+      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary", id: "SignIn", data: { "loading-text" => "Signing in..." } %>
     <% end %>
   </div>
 </div>
