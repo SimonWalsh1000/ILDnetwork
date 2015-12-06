@@ -4,7 +4,7 @@
 <div class="row">
   <div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
     <div class = "UserTally">
-      Number of groups:<%= @user_count %>
+      <h4>Number of members:<%= @user_count %></h4>
     </div>
 
     <div class = "MapContainer">
@@ -32,11 +32,6 @@
                   <%= f.submit "Submit", class: "btn btn-primary" %>
               <% end %>
 
-              <div class = "Label">Average MDT break down by diagnosis</div>
-              <%= simple_form_for(@user, :url =>  break_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
-                    <%= f.input :country, as: :country, label: false,  class: "form-control"%>
-                    <%= f.submit "Submit", class: "btn btn-primary" %>
-              <% end %>
         </div>
     </div>
 

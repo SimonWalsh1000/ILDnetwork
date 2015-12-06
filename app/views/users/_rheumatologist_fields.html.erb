@@ -1,10 +1,13 @@
-<div class="nested-fields">
+
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 ">
+  <div class="nested-fields">
   <div class="page-header">
     <h3>Rheumatologist</h3>
   </div>
   <%= f.input :experience, collection: 1..50, label: "Rheumatologist experience (years)", class: 'form-control' %>
   <%= f.input :kind, collection: [ "Rheumatologist with an interest in intersitial lung disease", "General rheumatologist"] , label: "Type", class: 'form-control' %>
   <%= link_to_remove_association "Remove rheumatologist", f,  class: "btn btn-danger btn-xs Component" %>
+</div>
 </div>
 
 

@@ -125,6 +125,8 @@
 }
 
 
+
+
 @media (max-width: 991px) {
 
   .CaseMixInputs {
@@ -132,13 +134,16 @@
     margin-bottom: 20px;
     font-size: 0.9em;
     .form-control {
-      float: right !important;
-      width: 20% !important;
+      width: 100% !important;
     }
 
     .text {
       display: block !important;
     }
+  }
+
+  select, input {
+    font-size: 0.9em !important;
   }
 
   .page-header {
@@ -148,11 +153,13 @@
     h3 {
       font-size: 1.4em;
     }
-
   }
 
   .RadioBlock {
-    font-size: 1em;
+    font-size: 0.8em;
+    label {
+      margin: 0px !important;
+    }
   }
 
   .form-group {

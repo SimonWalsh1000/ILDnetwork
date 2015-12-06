@@ -99,6 +99,7 @@ class UsersController < ApplicationController
 
   def freq
     unless params[:user][:country].empty?
+      @frequency_test = User.where(iso: params[:user][:country]).group('schedule')
       @frequency = User.where(iso: params[:user][:country]).group('schedule').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
     else
       @members = User.all.count
@@ -106,8 +107,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def ipf
+    unless params[:user][:country].empty?
+      @frequency_test = User.where(iso: params[:user][:country]).group('ipf')
+      @frequency = User.where(iso: params[:user][:country]).group('ipf').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
+    else
+      @members = User.all.count
+      @frequency = User.all.group('ipf').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
+    end
+  end
+
   def ild
     unless params[:user][:country].empty?
+      @frequency_test = User.where(iso: params[:user][:country]).group('cases')
       @frequency = User.where(iso: params[:user][:country]).group('cases').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
     else
       @members = User.all.count

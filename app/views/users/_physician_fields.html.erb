@@ -1,3 +1,6 @@
+
+
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 ">
 <div class="nested-fields">
   <div class="page-header">
     <h3>Physician</h3>
@@ -5,4 +8,5 @@
   <%= f.input :experience, collection: 1..50, label: "Physician experience (years)", class: 'form-control' %>
   <%= f.input :kind, collection: [ "Pulmonologist (fellowship trained)", "General physician with an interest in pulmonology", "General physician"] , label: "Type", class: 'form-control' %>
   <%= link_to_remove_association "Remove physician", f,  class: "btn btn-danger btn-xs Component" %>
+</div>
 </div>

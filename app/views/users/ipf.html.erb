@@ -1,0 +1,73 @@
+
+<% if @frequency_test.blank? %>
+    <div class="page-header">
+      <h3>There is no data for this country yet</h3>
+    </div>
+<%  else %>
+    <div class = "MapContainer">
+      <div id="container"></div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var data = <%=raw @frequency %>
+
+                    $('#container').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Number of new IPF cases per month'
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Number of MDTs'
+                            }
+
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                pointPadding: 0.25,
+                                groupPadding: 0.25,
+                                borderWidth: 0,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.y:f}'
+                                }
+                            }
+                        },
+
+                        tooltip: {
+                            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}</b>'
+                        },
+
+                        series: [{
+                            name: "Number",
+                            colorByPoint: true,
+                            data: data
+                        }]
+                    })
+        });
+
+
+    </script>
+
+<% end %>
