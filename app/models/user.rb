@@ -1,31 +1,3 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id              :integer          not null, primary key
-#  specialist      :boolean
-#  experience      :integer
-#  institute       :string
-#  radiologist     :boolean
-#  pathologist     :boolean
-#  schedule        :string
-#  cases           :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  member_id       :integer
-#  country         :string
-#  ipf             :integer
-#  nurse           :boolean
-#  genetics        :boolean
-#  physio          :boolean
-#  rheum           :boolean
-#  ipfpatients     :integer
-#  sarcoidpatients :integer
-#  IIPpatients     :integer
-#  CTDpatients     :integer
-#  unclasspatients :integer
-#
-
 class User < ActiveRecord::Base
 
   belongs_to :member
@@ -168,47 +140,33 @@ class User < ActiveRecord::Base
   end
 
 
-  def check_rads
+  def check_participants
     if self.rads
       self.rads.each do |rad|
-        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
+        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.blank? || rad.experience.nil?
       end
     end
-  end
-
-  def check_paths
     if self.paths
       self.paths.each do |path|
-        errors.add(:base, 'You must add type and experience of each radiologist') if path.kind.nil? || path.experience.nil?
+        errors.add(:base, 'You must add type and experience of each pathologist') if path.kind.blank? || path.experience.nil?
+      end
+    end
+    if self.physicians
+      self.physicians.each do |phys|
+        errors.add(:base, 'You must add type and experience of each physician') if phys.kind.blank? || phys.experience.nil?
+      end
+    end
+    if self.rheumatologists
+      self.rheumatologists.each do |rheum|
+        errors.add(:base, 'You must add type and experience of each rheumatologist') if rheum.kind.blank? || rheum.experience.nil?
+      end
+    end
+    if self.others
+      self.others.each do |other|
+        errors.add(:base, 'You must add type and experience of each participant') if other.kind.blank? || other.experience.nil?
       end
     end
   end
-
-  def check_phys
-    if self.phys
-      self.phys.each do |rad|
-        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
-      end
-    end
-  end
-
-
-  def check_rheumatologists
-    if self.rads
-      self.rads.each do |rad|
-        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
-      end
-    end
-  end
-
-  def check_others
-    if self.rads
-      self.rads.each do |rad|
-        errors.add(:base, 'You must add type and experience of each radiologist') if rad.kind.nil? || rad.experience.nil?
-      end
-    end
-  end
-
 
 
   def practice_to_string
@@ -246,43 +204,5 @@ class User < ActiveRecord::Base
       end
     end
   end
-
-  def check_minimum_info
-    errors.add(:base, 'You need to provide at least 1 physician') unless self.physicians.count > 0
-  end
-
-
-  def nurse?
-    if self.nurse
-      "Yes"
-    else
-      "No"
-    end
-  end
-
-  def genetics?
-    if self.genetics
-      "Yes"
-    else
-      "No"
-    end
-  end
-
-  def rheum?
-    if self.rheum
-      "Yes"
-    else
-      "No"
-    end
-  end
-
-  def physio?
-    if self.physio
-      "Yes"
-    else
-      "No"
-    end
-  end
-
 
 end
