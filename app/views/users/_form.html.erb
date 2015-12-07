@@ -50,7 +50,7 @@
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 
               <div class="field">
-                <%= f.input :kind, collection: [ "Pulmonologist (fellowship trained)", "General physician with an interest in pulmonology", "General physician",
+                <%= f.input :kind, collection: [ "Academic/Researcher", "Pulmonologist (fellowship trained)", "General physician with an interest in pulmonology", "General physician",
                                                  "Thoracic radiologist (fellowship trained)", "General radiologist with an interest in thoracic imaging", "General radiologist",
                                                  "Pulmonary pathologist (fellowship trained)", "General pathologist with an interest in pulmonary pathology", "General pathologist"] , label: "Which best describes your position?", class: 'form-control' %>
               </div><br/>
@@ -149,10 +149,10 @@
                     <%= f.input :schedule, collection: [ "Sporadically", "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"] , label: "Frequency of MDT meeting", class: 'form-control' %>
                   </div>
                   <div class="field">
-                    <%= f.input :cases, collection: 0..500, label: "Number of new cases of ILD per month (approx)", class: 'form-control' %>
+                    <%= f.input :cases, collection:[ "0-10", "11-20", "21-30", "31-40", "41-50", "51-60", "61-70", "71-80", "81-90", "91-100", ">100"] , label: "Number of new cases of ILD per month (approx)", class: 'form-control' %>
                   </div>
-                  <div class="field">
-                    <%= f.input :ipf, collection: 0..250, label: "Number of new cases of IPF per month (approx)", class: 'form-control' %>
+                 <div class="field">
+                    <%= f.input :ipf, collection: [ "0-10", "11-20", "21-30", "31-40", "41-50", "51-60", "61-70", "71-80", "81-90", "91-100", ">100"] , label: "Number of new cases of IPF per month (approx)", class: 'form-control' %>
                   </div>
                   <div class="field">
                     <%= f.input :biopsy, collection: 0..100, label: "Percentage of patients biopsied (approx)", class: 'form-control' %>

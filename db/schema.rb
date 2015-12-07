@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206161356) do
+ActiveRecord::Schema.define(version: 20151207154500) do
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -77,12 +77,10 @@ ActiveRecord::Schema.define(version: 20151206161356) do
     t.boolean  "radiologist"
     t.boolean  "pathologist"
     t.string   "schedule",        default: "Weekly"
-    t.integer  "cases"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.integer  "member_id"
     t.string   "country"
-    t.integer  "ipf"
     t.integer  "ipfpatients"
     t.integer  "sarcoidpatients"
     t.integer  "iippatients"
@@ -99,6 +97,8 @@ ActiveRecord::Schema.define(version: 20151206161356) do
     t.integer  "experience"
     t.integer  "other"
     t.text     "comment"
+    t.string   "ipf"
+    t.string   "cases"
   end
 
 end

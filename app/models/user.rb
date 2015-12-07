@@ -68,75 +68,75 @@ class User < ActiveRecord::Base
 
 
   def user_practice
-    errors.add(:base, 'You need to answer question A."How do you diagnose IPF?"') if self.practice.nil?
+    errors.add(:base, 'Please answer question A."How do you diagnose IPF?"') if self.practice.nil?
   end
 
   def user_role
-    errors.add(:base, 'You need to answer Section B."Which best describes your position?"') if self.kind.blank?
+    errors.add(:base, 'Please answer Section B."Which best describes your position?"') if self.kind.blank?
   end
 
   def user_experience
-    errors.add(:base, 'You need to answer Section B."How many years experience do you have in this role?"') if self.experience.nil?
+    errors.add(:base, 'Please answer Section B."How many years experience do you have in this role?"') if self.experience.nil?
   end
 
   def user_institution
-    errors.add(:base, 'You need to answer Section B."What is the name of your institution?"') if self.institute.blank?
+    errors.add(:base, 'Please answer Section B."What is the name of your institution?"') if self.institute.blank?
   end
 
   def user_institution_type
-    errors.add(:base, 'You need to answer Section B."What type of institution is this?"') if self.institute_type.blank?
+    errors.add(:base, 'Please answer Section B."What type of institution is this?"') if self.institute_type.blank?
   end
 
   def user_specialist
-    errors.add(:base, 'You need to answer Section C."Which best describes your MDT meeting?"') if self.specialist.blank?
+    errors.add(:base, 'Please answer Section C."Which best describes your MDT meeting?"') if self.specialist.blank?
   end
 
   def user_cases
-    errors.add(:base, 'You need to answer Section D."Number of new cases of ILD per month (approx)?"') if self.cases.blank?
+    errors.add(:base, 'Please answer Section D."Number of new cases of ILD per month (approx)?"') if self.cases.blank?
   end
 
   def user_ipf
-    errors.add(:base, 'You need to answer Section D."Number of new cases of IPF per month (approx)"') if self.ipf.blank?
+    errors.add(:base, 'Please answer Section D."Number of new cases of IPF per month (approx)"') if self.ipf.blank?
   end
 
   def user_biopsy
-    errors.add(:base, 'You need to answer Section D."Percentage of patients biopsied (approx)"') if self.biopsy.blank?
+    errors.add(:base, 'Please answer Section D."Percentage of patients biopsied (approx)"') if self.biopsy.blank?
   end
 
   def user_cryobiopsy
-    errors.add(:base, 'You need to answer Section D."Availability of cryobiopsy"') if self.cryobiopsy.blank?
+    errors.add(:base, 'Please answer Section D."Availability of cryobiopsy"') if self.cryobiopsy.blank?
   end
 
   def user_nonild
-    errors.add(:base, 'You need to answer Section D."Proportion of non-ILD patients (0 if you see none)"') if self.nonild.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of non-ILD patients (0 if you see none)"') if self.nonild.blank?
   end
 
   def user_iippatients
-    errors.add(:base, 'You need to answer Section D."Proportion of non-IPF IIP patients (0 if you see none)"') if self.iippatients.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of non-IPF IIP patients (0 if you see none)"') if self.iippatients.blank?
   end
 
   def user_ipfpatients
-    errors.add(:base, 'You need to answer Section D."Proportion of IPF patients (0 if you see none)"') if self.ipfpatients.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of IPF patients (0 if you see none)"') if self.ipfpatients.blank?
   end
 
   def user_hppatients
-    errors.add(:base, 'You need to answer Section D."Proportion of HP patients (0 if you see none)"') if self.hppatients.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of HP patients (0 if you see none)"') if self.hppatients.blank?
   end
 
   def user_sarcoidpatients
-    errors.add(:base, 'You need to answer Section D."Proportion of sarcoidosis patients (0 if you see none)"') if self.sarcoidpatients.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of sarcoidosis patients (0 if you see none)"') if self.sarcoidpatients.blank?
   end
 
   def user_ctdpatients
-    errors.add(:base, 'You need to answer Section D."Proportion of CTD-ILD patients (0 if you see none)"') if self.ctdpatients.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of CTD-ILD patients (0 if you see none)"') if self.ctdpatients.blank?
   end
 
   def user_unclasspatients
-    errors.add(:base, 'You need to answer Section D."Proportion of unclassifiable ILD patients (0 if you see none)"') if self.unclasspatients.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of unclassifiable ILD patients (0 if you see none)"') if self.unclasspatients.blank?
   end
 
   def user_other
-    errors.add(:base, 'You need to answer Section D."Proportion of other patients (select 0 if not applicable)"') if self.other.blank?
+    errors.add(:base, 'Please answer Section D."Proportion of other patients (select 0 if not applicable)"') if self.other.blank?
   end
 
 
