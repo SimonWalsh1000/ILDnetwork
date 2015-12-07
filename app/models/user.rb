@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
 
   validate :disease_proportions, :on => :update
 
+  validate :user_country, :on => :update
+
   validate :user_specialist, :on => :update
 
   validate :user_cases, :on => :update
@@ -85,6 +87,10 @@ class User < ActiveRecord::Base
 
   def user_institution_type
     errors.add(:base, 'Please answer Section B."What type of institution is this?"') if self.institute_type.blank?
+  end
+
+  def user_country
+    errors.add(:base, 'Please answer question A. "Which country is this institution in?"') if self.country.blank?
   end
 
   def user_specialist
