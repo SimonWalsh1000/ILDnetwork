@@ -15,7 +15,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
 # POST /resource
   def create
     super
-    AdminWorker.perform_async(resource.email)
+    # AdminWorker.perform_async(resource.email)
   end
 
   # GET /resource/edit
