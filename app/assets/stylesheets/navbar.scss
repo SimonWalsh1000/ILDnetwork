@@ -3,119 +3,120 @@
 
 /*NavBar*/
 
-.navbar-default {
+.NavBarRestraint {
+
+  .navbar-default {
     background-color: #355887;
 
-  .navbar-brand {
-    font-size: 2em;
-    font-weight: 700;
-    color: #ffffff !important;
+    .navbar-brand {
+      font-size: 2em;
+      font-weight: 700;
+      color: #ffffff !important;
+    }
+
   }
 
-}
-
-
-.navbar-default .navbar-nav > li  {
+  .navbar-default .navbar-nav > li {
     border-left: 1px solid #6F87A6 !important;
-    font-family: Arial,sans-serif !important;
+    font-family: Arial, sans-serif !important;
     &:last-child {
-     border-right: 1px solid #6F87A6 !important;
- }
-}
-
-.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a {
-    color: #FFFFFF !important;
-    background-color: #355887 !important;
-}
-
-
-@media (max-width:  765px) {
-    .navbar-default .navbar-nav > li  {
-        clear:both;
+      border-right: 1px solid #6F87A6 !important;
     }
-}
+  }
 
-
-.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a {
     color: #FFFFFF !important;
     background-color: #355887 !important;
-}
+  }
 
-.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover {
+  @media (max-width: 765px) {
+    .navbar-default .navbar-nav > li {
+      clear: both;
+    }
+  }
+
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #FFFFFF !important;
     background-color: #355887 !important;
-}
-.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:active{
+  }
+
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover {
     color: #FFFFFF !important;
     background-color: #355887 !important;
-}
+  }
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:active {
+    color: #FFFFFF !important;
+    background-color: #355887 !important;
+  }
 
-.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover {
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover {
     color: #FFFFFF !important;
     background-color: #133c5d !important;
-}
-.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:active{
+  }
+  .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:active {
     color: #FFFFFF !important;
     background-color: #133c5d !important;
-}
+  }
 
-.navbar-default .navbar-nav > li > a {
+  .navbar-default .navbar-nav > li > a {
     color: #cfd8de !important;
-&:hover{
-     color: #FFFFFF !important;
- }
-}
+    &:hover {
+      color: #FFFFFF !important;
+    }
+  }
 
-.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: $gray-darkest;
     font-weight: 200;
-}
+  }
 
-.navbar-collapse {
+  .navbar-collapse {
     max-height: none !important;
-}
+  }
 
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #cfd8de !important;
-        font-weight: 100 !important;
-&:hover{
-     color: #FFFFFF !important;
- }
-}
-}
+      color: #cfd8de !important;
+      font-weight: 100 !important;
+      &:hover {
+        color: #FFFFFF !important;
+      }
+    }
+  }
 
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     background-color: #355887 !important;
-}
+  }
 
-.navbar-toggle {
+  .navbar-toggle {
     background-color: #355887 !important;
-.icon-bar {
-    background-color: #ffffff !important;
-}
-&:hover{
-     background-color: #355887 !important;
-.icon-bar {
-    background-color: #ffffff;
-}
-}
-}
+    .icon-bar {
+      background-color: #ffffff !important;
+    }
+    &:hover {
+      background-color: #355887 !important;
+      .icon-bar {
+        background-color: #ffffff;
+      }
+    }
+  }
 
-.navbar-toggle:active {
+  .navbar-toggle:active {
     background-color: #355887 !important;
-}
+  }
 
-.navbar-toggle:focus {
+  .navbar-toggle:focus {
     background-color: #355887 !important;
-}
+  }
 
-.HeaderPicture {
-    width:20px;
+  .HeaderPicture {
+    width: 20px;
     height: 20px;
     display: inline-block;
     border-radius: 3%;
+  }
+
 }
 
 

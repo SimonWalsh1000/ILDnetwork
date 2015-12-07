@@ -22,7 +22,8 @@ Rails.application.routes.draw do
       get :rheum
       post :freq
       post :ild
-      post :ipf
+      get :ipf
+      get :mdt
       post :break
     end
 

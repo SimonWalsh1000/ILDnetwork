@@ -1,73 +1,91 @@
 
-<% if @frequency_test.blank? %>
-    <div class="page-header">
-      <h3>There is no data for this country yet</h3>
+
+
+<div class="row">
+  <div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
+    <div class = "UserTally">
+      <h4>Number of members:<%= @user_count %></h4>
     </div>
-<%  else %>
+
+    <div class = "NetWorkButtons">
+    <div class="btn-group" role="group" aria-label="...">
+      <%= link_to "IPF cases/country", ipf_users_path, :class => "btn btn-default btn-xs", :type => "button" %>
+      <%= link_to "ILD dedicated MDTS/country", mdt_users_path, :class => "btn btn-default btn-xs", :type => "button" %>
+    </div>
+  </div>
+
     <div class = "MapContainer">
-      <div id="container"></div>
+      <div id="container-maps"></div>
     </div>
 
-    <script>
+  </div>
+</div>
 
-        $(document).ready(function () {
+<%= raw @user_json %><br/><br/><br/><br/><br/>
+/////////////////////////
 
-            var data = <%=raw @frequency %>
+<%= raw @ipf_json%>
 
-                    $('#container').highcharts({
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Number of new IPF cases per month'
-                        },
-                        subtitle: {
-                            text: ''
-                        },
-                        xAxis: {
-                            type: 'category'
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Number of MDTs'
-                            }
+<script>
 
-                        },
-                        credits: {
-                            enabled: false
-                        },
-                        legend: {
-                            enabled: false
-                        },
-                        exporting: {
-                            enabled: false
-                        },
-                        plotOptions: {
-                            series: {
-                                pointPadding: 0.25,
-                                groupPadding: 0.25,
-                                borderWidth: 0,
-                                dataLabels: {
-                                    enabled: true,
-                                    format: '{point.y:f}'
-                                }
-                            }
-                        },
+  $(document).ready(function () {
 
-                        tooltip: {
-                            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}</b>'
-                        },
+    var data =  <%= raw @user_json %>
 
-                        series: [{
-                            name: "Number",
-                            colorByPoint: true,
-                            data: data
-                        }]
-                    })
+
+
+      // Initiate the chart
+        $('#container-maps').highcharts('Map', {
+
+          title : {
+            useHTML: true,
+            text : '<div style = "margin-bottom:40px;">Members by country (double click to zoom)</div>'
+          },
+
+          mapNavigation: {
+            enabled: true,
+            enableDoubleClickZoomTo: true
+          },
+
+          credits: {
+            enabled: false
+          },
+
+          exporting: {
+            enabled: false
+          },
+
+          legend: {
+            enabled: false
+          },
+
+
+
+          colorAxis: {
+            min: 1,
+            max: 1000,
+            type: 'logarithmic'
+          },
+
+          series : [{
+            data : data,
+            mapData: Highcharts.maps['custom/world'],
+            joinBy: ['iso-a2', 'code'],
+            name: 'Number of members',
+            states: {
+              hover: {
+                color: '#BADA55'
+              }
+            },
+            tooltip: {
+              valueSuffix: ''
+            }
+          }]
         });
 
 
-    </script>
+  });
 
-<% end %>
+
+</script>

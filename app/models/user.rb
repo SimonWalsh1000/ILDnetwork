@@ -169,6 +169,28 @@ class User < ActiveRecord::Base
   end
 
 
+  def user_complete
+    self.practice.nil? ? false : true
+    self.kind.blank? ? false : true
+    self.experience.nil? ? false : true
+    self.institute.blank? ? false : true
+    self.institute_type.blank? ? false : true
+    self.specialist.blank? ? false : true
+    self.cases.blank? ? false : true
+    self.ipf.blank?  ? false : true
+    self.biopsy.blank? ? false : true
+    self.cryobiopsy.blank? ? false : true
+    self.nonild.blank? ? false : true
+    self.iippatients.blank? ? false : true
+    self.ipfpatients.blank? ? false : true
+    self.hppatients.blank? ? false : true
+    self.sarcoidpatients.blank? ? false : true
+    self.ctdpatients.blank? ? false : true
+    self.unclasspatients.blank? ? false : true
+    self.other.blank? ? false : true
+  end
+
+
   def practice_to_string
     if self.practice == "1"
       'By myself with the aid of diagnostic guidelines'

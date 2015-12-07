@@ -3,36 +3,24 @@
 
 <div class="row">
   <div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
     <div class = "UserTally">
-      <h4>Number of members:<%= @user_count %></h4>
+      <h4>User count:<%= @user_count %></h4>
+    </div>
+
+    <div class = "NetWorkButtons">
+      <div class="btn-group" role="group" aria-label="...">
+        <%=
+            # link_to "IPF cases/country", ipf_users_path, :class => "btn btn-default btn-xs", :type => "button"
+        %>
+        <%=
+            # link_to "ILD dedicated MDTS/country", mdt_users_path, :class => "btn btn-default btn-xs", :type => "button"
+        %>
+      </div>
     </div>
 
     <div class = "MapContainer">
       <div id="container-maps"></div>
-    </div>
-
-
-    <div class = "col-lg-6 col-lg-offset-3 col-md-6col-md-offset-3 col-sm-12 col-xs-12">
-        <div class = "UserInputs">
-              <div class = "Label">MDT frequency</div>
-              <%= simple_form_for(@user, :url =>  freq_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
-                  <%= f.input :country, as: :country, label: false,  class: "form-control"%>
-                  <%= f.submit "Submit", class: "btn btn-primary" %>
-              <% end %>
-
-              <div class = "Label">New ILD cases per month</div>
-              <%= simple_form_for(@user, :url =>  ild_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
-                  <%= f.input :country, as: :country, label: false,  class: "form-control"%>
-                  <%= f.submit "Submit", class: "btn btn-primary" %>
-              <% end %>
-
-              <div class = "Label">New cases of IPF per month</div>
-              <%= simple_form_for(@user, :url =>  ipf_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
-                  <%= f.input :country, as: :country, label: false,  class: "form-control"%>
-                  <%= f.submit "Submit", class: "btn btn-primary" %>
-              <% end %>
-
-        </div>
     </div>
 
   </div>
@@ -46,69 +34,57 @@
 
         var data =  <%= raw @user_json %>
 
-                $('#container-maps').highcharts('Map', {
 
-                    title: {
-                        text: ''
-                    },
 
-                    legend: {
-                        enabled: false,
-                        title: {
-                            text: 'Breathe Members',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                            }
-                        }
-                    },
+              // Initiate the chart
+              $('#container-maps').highcharts('Map', {
 
-                    credits: {
-                        enabled: false
-                    },
+                title : {
+                  useHTML: true,
+                  text : '<div style = "margin-bottom:40px; font-size: 0.8em;">Members by country (double click to zoom)</div>'
+                },
 
-                    exporting: {
-                        enabled: false
-                    },
+                mapNavigation: {
+                  enabled: true,
+                  enableDoubleClickZoomTo: true
+                },
 
-                    mapNavigation: {
-                        enabled: true,
-                        buttonOptions: {
-                            verticalAlign: 'bottom'
-                        }
-                    },
+                credits: {
+                  enabled: false
+                },
 
-                    tooltip: {
-                        backgroundColor: 'none',
-                        borderWidth: 0,
-                        shadow: false,
-                        useHTML: true,
-                        padding: 0,
-                        pointFormat: '<span class="f32"><span class="flag {point.flag}"></span></span>'
-                        + ' {point.name}: <b>{point.value}</b>',
-                        positioner: function () {
-                            return { x: 100, y: 250 };
-                        }
-                    },
+                exporting: {
+                  enabled: false
+                },
 
-                    colorAxis: {
-                        min: 1,
-                        max: 1000,
-                        type: 'linear'
-                    },
+                legend: {
+                  enabled: false
+                },
 
-                    series : [{
-                        data : data,
-                        mapData: Highcharts.maps['custom/world'],
-                        joinBy: ['iso-a2', 'code'],
-                        showInLegend: false,
-                        name: 'Groups',
-                        states: {
-                            hover: {
-                                color: '#BADA55'
-                            }
-                        }
-                    }]
-                });
+
+
+                colorAxis: {
+                  min: 1,
+                  max: 1000,
+                  type: 'logarithmic'
+                },
+
+                series : [{
+                  data : data,
+                  mapData: Highcharts.maps['custom/world'],
+                  joinBy: ['iso-a2', 'code'],
+                  name: 'Number of members',
+                  states: {
+                    hover: {
+                      color: '#BADA55'
+                    }
+                  },
+                  tooltip: {
+                    valueSuffix: ''
+                  }
+                }]
+              });
+
 
     });
 

@@ -108,6 +108,9 @@ class UsersController < ApplicationController
   end
 
   def ipf
+  end
+
+  def mdt
     unless params[:user][:country].empty?
       @frequency_test = User.where(iso: params[:user][:country]).group('ipf')
       @frequency = User.where(iso: params[:user][:country]).group('ipf').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json

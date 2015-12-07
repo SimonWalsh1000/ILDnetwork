@@ -1,0 +1,22 @@
+<div class = "col-lg-6 col-lg-offset-3 col-md-6col-md-offset-3 col-sm-12 col-xs-12">
+  <div class = "UserInputs">
+    <div class = "Label">MDT frequency</div>
+    <%= simple_form_for(@user, :url =>  freq_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
+        <%= f.input :country, as: :country, label: false,  class: "form-control"%>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+
+    <div class = "Label">New ILD cases per month</div>
+    <%= simple_form_for(@user, :url =>  ild_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
+        <%= f.input :country, as: :country, label: false,  class: "form-control"%>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+
+    <div class = "Label">New cases of IPF per month</div>
+    <%= simple_form_for(@user, :url =>  ipf_users_path, :method => :post, html: { class: "form-inline"} ) do |f| %>
+        <%= f.input :country, as: :country, label: false,  class: "form-control"%>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
