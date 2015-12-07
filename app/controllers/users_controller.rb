@@ -169,6 +169,7 @@ class UsersController < ApplicationController
                                    :institute_type,
                                    :schedule,
                                    :cases,
+                                   :document,
                                    rads_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    paths_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    rheumatologists_attributes: [:user_id, :experience, :kind, :id, :_destroy],

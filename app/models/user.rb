@@ -66,7 +66,11 @@ class User < ActiveRecord::Base
 
   validate :user_other, :on => :update
 
+  validate :user_record, :on => :update
+
   validate :check_participants, :on => :update
+
+  validate :user_participants_for_mdt, :on => :update
 
 
   def user_practice
@@ -145,6 +149,10 @@ class User < ActiveRecord::Base
     errors.add(:base, 'Please answer Section D."Proportion of other patients (select 0 if not applicable)"') if self.other.blank?
   end
 
+  def user_record
+    errors.add(:base, 'Please answer Section D."Do you routinely record MDT outcome?"') if self.document.blank?
+  end
+
 
   def check_participants
     if self.rads
@@ -170,6 +178,15 @@ class User < ActiveRecord::Base
     if self.others
       self.others.each do |other|
         errors.add(:base, 'You must add type and experience of each participant') if other.kind.blank? || other.experience.nil?
+      end
+    end
+  end
+
+
+  def user_participants_for_mdt
+    if self.specialist == "ILD dedicated MDT meeting" || self.specialist == "General respiratory MDT meeting"
+      if self.rads.blank? && self.physicians.blank? && self.paths.blank? && self.rheumatologists.blank? && self.others.blank?
+        errors.add(:base, 'If you have a ILD dedicated MDT meeting or General respiratory MDT meeting you must add participants')
       end
     end
   end

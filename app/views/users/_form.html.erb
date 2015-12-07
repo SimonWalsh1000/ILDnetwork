@@ -161,6 +161,9 @@
                     <%= f.input :cryobiopsy, collection: ["Yes", "No"], label: "Availability of cryobiopsy", class: 'form-control' %>
                   </div>
                   <div class="field">
+                    <%= f.input :document, collection: ["Yes", "No"], label: "Do you routinely record MDT outcome?", class: 'form-control' %>
+                  </div>
+                  <div class="field">
                     <%= f.input :nonild, collection: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100], label: "%Non-ILD", class: 'form-control' %>
                   </div>
                   <div class="field">

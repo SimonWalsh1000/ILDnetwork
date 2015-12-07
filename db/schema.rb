@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207154500) do
+ActiveRecord::Schema.define(version: 20151207210712) do
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20151207154500) do
     t.text     "comment"
     t.string   "ipf"
     t.string   "cases"
+    t.string   "document"
   end
 
 end
