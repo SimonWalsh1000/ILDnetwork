@@ -26,6 +26,7 @@ gem 'devise-bootstrap-views'
 gem 'growlyflash'
 gem 'cocoon'
 gem "highcharts-rails", "~> 3.0.0"
+gem 'sidekiq'
 
 
 
