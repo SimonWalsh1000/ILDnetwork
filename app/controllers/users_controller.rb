@@ -64,6 +64,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         # CompletedWorker.perform_async(@user.member.email)
+        CompletionMailer.notify_admin_completion(@user.member.email).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

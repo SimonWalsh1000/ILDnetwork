@@ -16,6 +16,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
   def create
     super
     # AdminWorker.perform_async(resource.email)
+    AdminMailer.notify_admin_sign_up(resource.email).deliver_now
   end
 
   # GET /resource/edit
