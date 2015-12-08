@@ -31,6 +31,7 @@ class UsersController < ApplicationController
               ['Other', other]]
 
     @cases = @cases.reject {|a| a[1] == 0 }
+    @participants_notifier = true if @user.rads.blank? && @user.physicians.blank? && @user.paths.blank? && @user.rheumatologists.blank? && @user.others.blank?
   end
 
   # GET /users/new
@@ -61,10 +62,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    completion = @user.user_complete
     respond_to do |format|
       if @user.update(user_params)
-        # CompletedWorker.perform_async(@user.member.email)
-        CompletionMailer.notify_admin_completion(@user.member.email).deliver_now
+        CompletedWorker.perform_async(@user.member.email) unless completion == true
+        # CompletionMailer.notify_admin_completion(@user.member.email).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
