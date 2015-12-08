@@ -88,7 +88,7 @@ class UsersController < ApplicationController
   end
 
   def network
-    @user_count = User.all.count
+    @user_count = User.all.select { |u| u.user_complete == true }.count
     @user_json = User.all.group_by(&:iso).map{|k,v| [k, v.count, k.to_s.downcase]}.map {|c, v | ["code" => c, "value" => v, "flag" => c.to_s.downcase]}.flatten.to_json
     @sectiona =  User.all.group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
     render 'network'

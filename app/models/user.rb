@@ -78,7 +78,11 @@ class User < ActiveRecord::Base
 
 
   def user_practice
-    errors.add(:base, 'Please answer question A."How do you diagnose IPF?"') if self.practice.nil?
+    errors.add(:base, 'Please answer question A."How do you diagnose IPF?"') if self.practice.nil? || self.practice.blank?
+  end
+
+  def user_practice_null
+    errors.add(:base, 'Please answer question A."How do you diagnose IPF?"') if self.practice.nil? || self.practice.blank?
   end
 
   def user_role
