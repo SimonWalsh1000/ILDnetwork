@@ -70,8 +70,6 @@ class User < ActiveRecord::Base
   validate :user_other, :on => :update, :if => :do_not_skip_it?
 
 
-
-
   validate :user_record, :on => :update
 
   validate :check_participants, :on => :update
