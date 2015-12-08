@@ -3,7 +3,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
-
+  before_action :track_visit, only: [:new]
 
   def new
     # Override Devise default behaviour and create a profile as well

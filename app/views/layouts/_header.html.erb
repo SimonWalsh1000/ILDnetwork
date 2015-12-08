@@ -16,6 +16,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if member_signed_in? %>
+              <% if current_user.admin == "true" && current_user.member.email == "slfwalsh@gmail.com" %>
+                  <li><%=link_to "Admin", admin_users_path %></li>
+              <% end %>
 
               <% if current_user.user_complete %>
                 <li><%=link_to "View network", network_user_path(current_user) %></li>

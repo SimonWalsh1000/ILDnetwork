@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207210712) do
+ActiveRecord::Schema.define(version: 20151208075048) do
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -100,6 +100,25 @@ ActiveRecord::Schema.define(version: 20151207210712) do
     t.string   "ipf"
     t.string   "cases"
     t.string   "document"
+    t.string   "admin"
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.string   "device"
+    t.string   "browser"
+    t.string   "ip_address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "location"
+    t.string   "platform"
+    t.string   "mobile"
+    t.string   "city"
+    t.string   "country"
+    t.string   "referrer"
+    t.string   "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "path"
   end
 
 end

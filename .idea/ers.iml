@@ -220,6 +220,7 @@
     <orderEntry type="library" scope="PROVIDED" name="guard-minitest (v2.3.1, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="highcharts-rails (v3.0.10, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hitimes (v1.2.2, rbenv: 2.1.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="httpclient (v2.6.0.1, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.7.0, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n_data (v0.7.0, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="inflecto (v0.0.2, rbenv: 2.1.5) [gem]" level="application" />
@@ -241,6 +242,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_portile (v0.6.2, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.8.1, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest-reporters (v1.0.5, rbenv: 2.1.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mobylette (v3.5, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.11.2, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nenv (v0.2.0, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-scp (v1.2.1, rbenv: 2.1.5) [gem]" level="application" />
@@ -301,6 +303,8 @@
     <orderEntry type="library" scope="PROVIDED" name="unicode_utils (v1.4.0, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicorn (v4.8.3, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uniform_notifier (v1.9.0, rbenv: 2.1.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="useragent (v0.15.2, rbenv: 2.1.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="voight_kampff (v0.2.2, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v2.0.0.beta3, rbenv: 2.1.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.2, rbenv: 2.1.5) [gem]" level="application" />

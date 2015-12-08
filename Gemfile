@@ -27,6 +27,9 @@ gem 'growlyflash'
 gem 'cocoon'
 gem "highcharts-rails", "~> 3.0.0"
 gem 'sidekiq'
+gem 'useragent', '~> 0.15.2'
+gem 'mobylette'
+gem 'voight_kampff', '~> 0.2.2'
 
 
 

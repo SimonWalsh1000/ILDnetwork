@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get :ipf
       get :mdt
       post :break
+      get :admin
     end
 
     resources :physicians

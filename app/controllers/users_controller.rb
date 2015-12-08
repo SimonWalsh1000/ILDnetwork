@@ -134,6 +134,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def admin
+    @visits = Visit.all.order(:created_at => :desc).paginate(page: params[:page], :per_page => 50)
+    if current_user.admin?
+      render 'users/admin/raw'
+    else
+      sign_out_and_redirect(current_member)
+    end
+  end
+
   private
 
     def check_complete
