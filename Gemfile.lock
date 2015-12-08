@@ -300,6 +300,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -388,6 +390,10 @@ GEM
     simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     slop (3.6.0)
     sort_alphabetical (1.0.2)
       unicode_utils (>= 1.2.2)
@@ -482,6 +488,7 @@ DEPENDENCIES
   shoulda-matchers (~> 2.8.0)
   sidekiq
   simple_form (~> 3.2.0)
+  sinatra
   spring (= 1.1.3)
   sqlite3 (= 1.3.9)
   sunspot_solr

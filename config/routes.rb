@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-
+  require 'sidekiq/web'
+  authenticate do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   resources :others
 

@@ -30,6 +30,7 @@ gem 'sidekiq'
 gem 'useragent', '~> 0.15.2'
 gem 'mobylette'
 gem 'voight_kampff', '~> 0.2.2'
+gem 'sinatra', :require => nil
 
 
 

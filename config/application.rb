@@ -20,7 +20,8 @@ module Ers
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
+    # Do not swallow errors in after_commit/after_rollback callbacks
+
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.field_error_proc = Proc.new {|html, instance| html}
