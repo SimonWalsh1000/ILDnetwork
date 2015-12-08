@@ -90,15 +90,10 @@ class UsersController < ApplicationController
   def network
     @user_count = User.all.count
     @user_json = User.all.group_by(&:iso).map{|k,v| [k, v.count, k.to_s.downcase]}.map {|c, v | ["code" => c, "value" => v, "flag" => c.to_s.downcase]}.flatten.to_json
+    @sectiona =  User.all.group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
     render 'network'
   end
 
-  def popular_topics
-    @members = User.all.count
-    @total_views = current_user.impressionist_count.to_i + current_user.total_question_impressions.to_i + current_user.total_publication_impressions.to_i
-    @topics = ActsAsTaggableOn::Tag.most_used(5).to_a.flatten.map(&:serializable_hash).to_json
-    render 'users/charts/popular_topics'
-  end
 
 
   def freq

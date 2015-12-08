@@ -23,9 +23,12 @@
       <div id="container-maps"></div>
     </div>
 
+
+    <div class = "MapContainer">
+      <div id="container"></div>
+    </div>
   </div>
 </div>
-
 
 
 <script>
@@ -86,6 +89,79 @@
               });
 
 
+    });
+
+
+
+
+    $(document).ready(function () {
+
+      Highcharts.setOptions({
+        colors: ['#89bced', '#7cb5ec','#6fa2d4','#6390bc']
+      });
+
+      var data = <%=raw @sectiona %>;
+
+
+      console.log(data)
+
+
+      // Create the chart
+      $('#container').highcharts({
+        chart: {
+          type: 'column'
+        },
+        title : {
+          useHTML: true,
+          text : '<div style = "margin:40px 0px; font-size: 0.8em;">Diagnostic approach for IPF</div>'
+        },
+        subtitle: {
+          text: ''
+        },
+        xAxis: {
+          categories: [
+            'I make the diagnosis myself with the aid of diagnostic guidelines',
+            'I make the diagnosis via a face-to-face MDT discussion',
+            'If IPF is being considered I/we refer to an expert/academic ILD centre',
+          ],
+          crosshair: true
+        },
+        yAxis: {
+          title: {
+            text: 'Answers'
+          }
+
+        },
+        credits: {
+          enabled: false
+        },
+        legend: {
+          enabled: false
+        },
+        exporting: {
+          enabled: false
+        },
+        plotOptions: {
+          series: {
+            borderWidth: 0,
+            dataLabels: {
+              enabled: true,
+              format: '{point.y:f}'
+            }
+          }
+        },
+
+        tooltip: {
+          headerFormat: '<span style="font-size:11px">Response</span><br>',
+          pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}</b> Members<br/>'
+        },
+
+        series: [{
+          name: "Topic",
+          colorByPoint: true,
+          data: data
+        }]
+      })
     });
 
 
