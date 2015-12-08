@@ -4,6 +4,7 @@
 
     <!--This needs to be here for the other devise views-->
     <% flash.each do |key, value| %>
+      <% unless value == "Signed out successfully." %>
         <div class="alert alert-<%= key %>">
           <a href="#" data-dismiss="alert" class="close">×</a>
           <ul>
@@ -12,6 +13,7 @@
             </li>
           </ul>
         </div>
+      <% end %>
     <% end %>
 
 <div class="panel panel-default">

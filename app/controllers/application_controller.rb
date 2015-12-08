@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_member!
   before_action :current_user
 
-
-
   def current_user
     if member_signed_in?
       @current_user = User.find_by_member_id(current_member.id)
@@ -29,6 +27,5 @@ class ApplicationController < ActionController::Base
       visit.save unless visit.browser == "NewRelicPinger"
     end
   end
-
 
 end
