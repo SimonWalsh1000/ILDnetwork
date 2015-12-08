@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "notification@gildnet.com"
+  default from: "ildgroupproject@gmail.com"
   layout 'mailer'
 end
