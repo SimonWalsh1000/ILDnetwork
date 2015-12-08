@@ -167,6 +167,7 @@ class UsersController < ApplicationController
                                    :cryobiopsy,
                                    :nonild,
                                    :specialist,
+                                   :skip,
                                    :ipfpatients,
                                    :hppatients,
                                    :sarcoidpatients,

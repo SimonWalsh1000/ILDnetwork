@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208075048) do
+ActiveRecord::Schema.define(version: 20151208092724) do
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20151208075048) do
     t.string   "cases"
     t.string   "document"
     t.string   "admin"
+    t.boolean  "skip"
   end
 
   create_table "visits", force: :cascade do |t|

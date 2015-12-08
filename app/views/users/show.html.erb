@@ -74,9 +74,10 @@
       <%= @user.document %>
     </p>
 
+
   </div>
 
-  <% unless @cases.blank? %>
+  <% unless @cases.blank? || @user.skip == true %>
       <div class="page-header">
         <h3>MDT ILD case referral mix<br/></h3>
       </div>

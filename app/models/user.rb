@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   validate :user_specialist, :on => :update
 
-  validate :disease_proportions, :on => :update
+
 
   validate :user_country, :on => :update
 
@@ -50,21 +50,27 @@ class User < ActiveRecord::Base
 
   validate :user_cryobiopsy, :on => :update
 
-  validate :user_nonild, :on => :update
 
-  validate :user_ipfpatients, :on => :update
+  validate :disease_proportions, :on => :update, :if => :do_not_skip_it?
 
-  validate :user_hppatients, :on => :update
+  validate :user_nonild, :on => :update, :if => :do_not_skip_it?
 
-  validate :user_sarcoidpatients, :on => :update
+  validate :user_ipfpatients, :on => :update, :if => :do_not_skip_it?
 
-  validate :user_iippatients, :on => :update
+  validate :user_hppatients, :on => :update, :if => :do_not_skip_it?
 
-  validate :user_ctdpatients, :on => :update
+  validate :user_sarcoidpatients, :on => :update, :if => :do_not_skip_it?
 
-  validate :user_unclasspatients, :on => :update
+  validate :user_iippatients, :on => :update, :if => :do_not_skip_it?
 
-  validate :user_other, :on => :update
+  validate :user_ctdpatients, :on => :update, :if => :do_not_skip_it?
+
+  validate :user_unclasspatients, :on => :update, :if => :do_not_skip_it?
+
+  validate :user_other, :on => :update, :if => :do_not_skip_it?
+
+
+
 
   validate :user_record, :on => :update
 
@@ -193,24 +199,41 @@ class User < ActiveRecord::Base
 
 
   def user_complete
-    self.practice.nil? ? false : true
-    self.kind.blank? ? false : true
-    self.experience.nil? ? false : true
-    self.institute.blank? ? false : true
-    self.institute_type.blank? ? false : true
-    self.specialist.blank? ? false : true
-    self.cases.blank? ? false : true
-    self.ipf.blank?  ? false : true
-    self.biopsy.blank? ? false : true
-    self.cryobiopsy.blank? ? false : true
-    self.nonild.blank? ? false : true
-    self.iippatients.blank? ? false : true
-    self.ipfpatients.blank? ? false : true
-    self.hppatients.blank? ? false : true
-    self.sarcoidpatients.blank? ? false : true
-    self.ctdpatients.blank? ? false : true
-    self.unclasspatients.blank? ? false : true
-    self.other.blank? ? false : true
+    if self.skip == false
+      self.practice.nil? ? false : true
+      self.kind.blank? ? false : true
+      self.experience.nil? ? false : true
+      self.institute.blank? ? false : true
+      self.institute_type.blank? ? false : true
+      self.specialist.blank? ? false : true
+      self.cases.blank? ? false : true
+      self.ipf.blank?  ? false : true
+      self.biopsy.blank? ? false : true
+      self.cryobiopsy.blank? ? false : true
+      self.nonild.blank? ? false : true
+      self.iippatients.blank? ? false : true
+      self.ipfpatients.blank? ? false : true
+      self.hppatients.blank? ? false : true
+      self.sarcoidpatients.blank? ? false : true
+      self.ctdpatients.blank? ? false : true
+      self.unclasspatients.blank? ? false : true
+      self.other.blank? ? false : true
+    else
+      self.practice.nil? ? false : true
+      self.kind.blank? ? false : true
+      self.experience.nil? ? false : true
+      self.institute.blank? ? false : true
+      self.institute_type.blank? ? false : true
+      self.specialist.blank? ? false : true
+      self.cases.blank? ? false : true
+      self.ipf.blank?  ? false : true
+      self.biopsy.blank? ? false : true
+      self.cryobiopsy.blank? ? false : true
+    end
+  end
+
+  def do_not_skip_it?
+    self.skip ? false : true
   end
 
 
