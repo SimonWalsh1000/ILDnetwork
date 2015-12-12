@@ -109,8 +109,8 @@ class UsersController < ApplicationController
                           .group_by{ |u| u.institute_type}
                           .map {|i,o| ["name" => i,  "y" => User.where(id: o.map(&:id)).sum("biopsy")/o.count, "n" => o.count]}
                           .flatten.to_json
-    @arr_phys = []
-    @value = Physician.all.map { |u| u.user if u.user.country == @nation && u.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
+    # @arr_phys = []
+    # @value = Physician.all.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
     # @arr_rads = []
     # Rad.all.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
     # @arr_paths = []
