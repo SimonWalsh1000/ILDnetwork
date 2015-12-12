@@ -61,7 +61,10 @@
     <div class = "DataContainer">
       <div id="container-biopsy"></div>
     </div>
-  
+
+</div>
+
+<%= raw @nation_biopsy  %>
 
 <script>
 
@@ -112,14 +115,13 @@
 
 
 
-
-  // practices
-
-
-    var data = <%=raw @nation_practices %>;
+        // practices
 
 
-    console.log(data)
+        var data = <%=raw @nation_practices %>;
+
+
+
 
 
     // Create the chart
@@ -186,7 +188,6 @@
     var data = <%=raw @nation_biopsy %>;
 
 
-    console.log(data)
 
 
     // Create the chart
