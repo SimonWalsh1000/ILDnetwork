@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :physicians
 
+  attr_accessor :nation
+
   accepts_nested_attributes_for :rheumatologists, reject_if: :all_blank, allow_destroy: true
 
   accepts_nested_attributes_for :others, reject_if: :all_blank, allow_destroy: true
@@ -36,8 +38,6 @@ class User < ActiveRecord::Base
 
   validate :user_specialist, :on => :update
 
-
-
   validate :user_country, :on => :update
 
   validate :user_specialist, :on => :update
@@ -49,7 +49,6 @@ class User < ActiveRecord::Base
   validate :user_biopsy, :on => :update
 
   validate :user_cryobiopsy, :on => :update
-
 
   validate :disease_proportions, :on => :update, :if => :do_not_skip_it?
 
@@ -68,7 +67,6 @@ class User < ActiveRecord::Base
   validate :user_unclasspatients, :on => :update, :if => :do_not_skip_it?
 
   validate :user_other, :on => :update, :if => :do_not_skip_it?
-
 
   validate :user_record, :on => :update
 

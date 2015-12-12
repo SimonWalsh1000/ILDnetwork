@@ -29,6 +29,7 @@ countries = [["Andorra", "AD"], ["United Arab Emirates", "AE"], ["Afghanistan", 
 
       schedule = [ "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"]
 
+      kind = [ "General", "Expert", "Novice"]
 
     params = { :user => {
         :institute_type => "University College Hospital",
@@ -58,7 +59,49 @@ countries = [["Andorra", "AD"], ["United Arab Emirates", "AE"], ["Afghanistan", 
       }
     }
 
+    physician = Physician.new
+
     user.update!(params[:user])
+
+    params = { :physician => {
+        :experience => rand(0..40),
+        :kind => kind[rand(0..2)],
+        :user_id => user.id
+      }
+    }
+
+    physician.update!(params[:physician])
+
+
+
+
+
+    r = Rad.new
+
+    params = { :r => {
+        :experience => rand(0..40),
+        :kind => kind[rand(0..2)],
+        :user_id => user.id
+    }
+    }
+
+    r.update!(params[:r])
+
+
+
+
+
+    path = Path.new
+
+
+    params = { :path => {
+        :experience => rand(0..40),
+        :kind => kind[rand(0..2)],
+        :user_id => user.id
+    }
+    }
+
+    path.update!(params[:path])
 
 
 end

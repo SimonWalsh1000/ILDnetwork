@@ -16,19 +16,10 @@ Rails.application.routes.draw do
 
     member do
       get :network
+      post :nation
     end
 
     collection do
-      get :phys
-      get :rad
-      get :path
-      get :other
-      get :rheum
-      post :freq
-      post :ild
-      get :ipf
-      get :mdt
-      post :break
       get :admin
     end
 

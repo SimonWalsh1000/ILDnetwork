@@ -8,20 +8,19 @@
       <h4>Member count:<%= @user_count %></h4>
     </div>
 
-    <div class = "NetWorkButtons">
-      <div class="btn-group" role="group" aria-label="...">
-        <%=
-            # link_to "IPF cases/country", ipf_users_path, :class => "btn btn-default btn-xs", :type => "button"
-        %>
-        <%=
-            # link_to "ILD dedicated MDTS/country", mdt_users_path, :class => "btn btn-default btn-xs", :type => "button"
-        %>
-      </div>
-    </div>
-
     <div class = "MapContainer">
       <div id="container-maps"></div>
     </div>
+
+    <div class = "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+      <%= simple_form_for(current_user, :url =>  nation_user_path(current_user), :method => :post) do |f| %>
+            <%= f.input :nation, collection: @user_country_array, label: "Select a country to view data on (only countries represented are listed)", class: 'form-control' %>
+            <%= f.submit "Submit", class: "btn btn-primary" %></h3>
+      <% end %>
+    </div>
+
+
+
 
 
     <div class = "MapContainer">

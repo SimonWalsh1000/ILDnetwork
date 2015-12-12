@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :network]
-  # before_action :check_complete, only: [:show, :network]
+
+  include UsersHelper
+
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 
   # GET /users
   # GET /users.json
@@ -11,7 +14,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
     @user.nonild.nil? ? nonild = 0 : nonild = @user.nonild
     @user.ipfpatients.nil? ? ipfpatients = 0 : ipfpatients = @user.ipfpatients
     @user.sarcoidpatients.nil? ? sarcoidpatients = 0 : sarcoidpatients = @user.nonild
@@ -88,45 +90,40 @@ class UsersController < ApplicationController
   end
 
   def network
+    @user_country_array = Array.new
+    @user_country_array = User.all.map {|user| user.country }.reject{ |country| country.nil? }.uniq.sort
     @user_count = User.all.select { |u| u.user_complete == true }.count
     @user_json = User.all.group_by(&:iso).map{|k,v| [k, v.count, k.to_s.downcase]}.map {|c, v | ["code" => c, "value" => v, "flag" => c.to_s.downcase]}.flatten.to_json
     @sectiona =  User.all.group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
     render 'network'
   end
 
+  def nation
+    @iso = get_iso params[:user][:nation]
+    @nation = params[:user][:nation]
+    @user_country_array = Array.new
+    @user_count_country = User.all.select { |u| u.user_complete == true && u.country == @nation }.count
+    @nation_practices =  User.all.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
+    @nation_institutions =  User.all.where(country: @nation).group('institute_type').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
+    @nation_biopsy =  User.all.where(country: @nation).group_by{ |u| [u.institute_type, u.biopsy] }.map{ |i, o| ["name" => i[0], "y" => User.where(id: o.map(&:id)).sum("biopsy")/o.count]}.flatten.to_json
+
+    @arr_phys = []
+    Physician.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
+    @arr_rads = []
+    Rad.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
+    @arr_paths = []
+    Path.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
+    @arr_rheum = []
+    Rheumatologist.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rheum << v}
 
 
-  def freq
-    unless params[:user][:country].empty?
-      @frequency_test = User.where(iso: params[:user][:country]).group('schedule')
-      @frequency = User.where(iso: params[:user][:country]).group('schedule').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
-    else
-      @members = User.all.count
-      @frequency = User.all.group('schedule').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
-    end
-  end
 
-  def ipf
-  end
 
-  def mdt
-    unless params[:user][:country].empty?
-      @frequency_test = User.where(iso: params[:user][:country]).group('ipf')
-      @frequency = User.where(iso: params[:user][:country]).group('ipf').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
-    else
-      @members = User.all.count
-      @frequency = User.all.group('ipf').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
-    end
-  end
 
-  def ild
-    unless params[:user][:country].empty?
-      @frequency_test = User.where(iso: params[:user][:country]).group('cases')
-      @frequency = User.where(iso: params[:user][:country]).group('cases').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
-    else
-      @members = User.all.count
-      @frequency = User.all.group('cases').count.map { |k,v| [ "name" => k, "y" => v]}.flatten.to_json
-    end
+
+
+
+    render 'country'
   end
 
   def admin
@@ -153,6 +150,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:experience,
@@ -177,10 +175,12 @@ class UsersController < ApplicationController
                                    :schedule,
                                    :cases,
                                    :document,
+                                   :nation,
                                    rads_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    paths_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    rheumatologists_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    others_attributes: [:user_id, :experience, :kind, :id, :_destroy],
                                    physicians_attributes: [:user_id, :experience, :kind, :id, :_destroy])
     end
+
 end
