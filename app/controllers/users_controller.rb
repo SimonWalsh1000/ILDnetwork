@@ -112,11 +112,11 @@ class UsersController < ApplicationController
 
 
     @arr_phys = []
-    Physician.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
+    Physician.all.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
     @arr_rads = []
-    Rad.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
+    Rad.all.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
     @arr_paths = []
-    Path.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
+    Path.all.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
     @arr_rheum = []
     Rheumatologist.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rheum << v}
 
