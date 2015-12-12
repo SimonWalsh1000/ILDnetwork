@@ -109,14 +109,14 @@ class UsersController < ApplicationController
                           .group_by{ |u| u.institute_type}
                           .map {|i,o| ["name" => i,  "y" => User.where(id: o.map(&:id)).sum("biopsy")/o.count, "n" => o.count]}
                           .flatten.to_json
-    # @arr_phys = []
-    # @value = Physician.all.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
-    # @arr_rads = []
-    # Rad.all.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
-    # @arr_paths = []
-    # Path.all.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
-    # @arr_rheum = []
-    # Rheumatologist.all.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rheum << v}
+    @arr_phys = []
+    @value = Physician.all.reject {|p| p.user.nil?}.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
+    @arr_rads = []
+    Rad.all.reject {|p| p.user.nil?}.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
+    @arr_paths = []
+    Path.all.reject {|p| p.user.nil?}.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
+    @arr_rheum = []
+    Rheumatologist.all.reject {|p| p.user.nil?}.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rheum << v}
     render 'country'
   end
 
