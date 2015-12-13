@@ -134,6 +134,7 @@ class UsersController < ApplicationController
   def census
     if current_user.admin?
       @users = User.all
+      @user_count = User.all.select { |u| u.user_complete == true }.count
       render 'users/admin/census'
     else
       sign_out_and_redirect(current_member)
