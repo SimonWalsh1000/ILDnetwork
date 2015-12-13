@@ -183,11 +183,15 @@ html {
   }
 
   li {
+    width: 175px;
     padding: 15px;
     float: left;
     text-align: center;
     vertical-align: middle;
     font-size: 1.3em;
+    small {
+      font-size: 0.8em;
+    }
 
   }
 }

@@ -30,19 +30,24 @@
               <small><%= my_pluralize(median(@arr_phys).ceil, "Physician") %></small>
             </li>
             <% end %>
+
+
             <% unless @arr_rads.blank? %>
             <li><%= image_tag "Radiologist.png", :style => "width:100px; height:auto;" %><br/>
               <%= median(@arr_rads).ceil  %><br/>
               <small><%= my_pluralize(median(@arr_rads).ceil, "Radiologist") %></small>
             </li>
             <% end %>
+
+
             <% unless @arr_paths.blank? %>
             <li><%= image_tag "Pathologist.png", :style => "width:100px; height:auto;" %><br/>
               <%= median(@arr_paths).ceil %><br/>
               <small><%= my_pluralize(median(@arr_paths).ceil, "Pathologist") %></small>
             </li>
             <% end %>
-            <% unless @arr_rheum.blank? %><br/>
+
+            <% unless @arr_rheum.blank? %>
             <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %><br/>
               <%= median(@arr_rheum).ceil %><br/>
               <small><%= my_pluralize(median(@arr_rheum).ceil, "Rheumatologist") %></small>
