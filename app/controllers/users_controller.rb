@@ -102,20 +102,27 @@ class UsersController < ApplicationController
     @iso = get_iso params[:user][:nation]
     @nation = params[:user][:nation]
     @user_country_array = Array.new
-    @user_count_country = User.all.select { |u| u.user_complete == true && u.country == @nation }.count
-    @nation_practices =  User.all.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
-    @nation_institutions =  User.all.where(country: @nation).group('institute_type').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
-    @nation_biopsy =  User.all.where(country: @nation)
+    @user_count_country = User.select { |u| u.user_complete == true && u.country == @nation }.count
+    @nation_practices =  User.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
+
+
+    @value = User.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
+
+
+    @nation_institutions =  User.where(country: @nation).group('institute_type').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
+    @nation_biopsy =  User
+                          .where(country: @nation)
                           .group_by{ |u| u.institute_type}
                           .map {|i,o| ["name" => i,  "y" => User.where(id: o.map(&:id)).sum("biopsy")/o.count, "n" => o.count]}
                           .flatten.to_json
-    @arr_phys = []
-    @value = Physician.all.reject {|p| p.user.nil?}.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
-    @arr_rads = []
+
+    @arr_phys = Array.new
+    Physician.all.reject {|p| p.user.nil?}.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
+    @arr_rads = Array.new
     Rad.all.reject {|p| p.user.nil?}.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
-    @arr_paths = []
+    @arr_paths = Array.new
     Path.all.reject {|p| p.user.nil?}.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
-    @arr_rheum = []
+    @arr_rheum = Array.new
     Rheumatologist.all.reject {|p| p.user.nil?}.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rheum << v}
     render 'country'
   end

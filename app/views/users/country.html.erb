@@ -1,69 +1,75 @@
 
+<div class="row">
+  <div class = "col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+    <div class = "Nation">
 
-<div class = "Nation">
-      <div class="f32">
-        <div class="page-header">
-          <h3><span class="flag <%= @iso %>"></span><%= @nation %></h3>
+
+        <div class="f32">
+          <div class="page-header">
+            <h3><span class="flag <%= @iso %>"></span><%= @nation %></h3>
+          </div>
         </div>
-      </div>
 
 
 
-    <div class = "NationDetails">
-      <ul>
-        <li>
-          Number of respondents: <%= @user_count_country %>
-        </li>
-        <li>
-          MDT participants (given as median):
-        </li>
-      </ul>
+        <div class = "NationDetails">
+          <ul>
+            <li>
+              Number of respondents: <%= @user_count_country %>
+            </li>
+            <li>
+              MDT participants (given as median):
+            </li>
+          </ul>
+        </div>
+        <div class = "NationComponents">
+          <ul>
+            <% unless @arr_phys.blank? %>
+            <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %><br/>
+              <%= median(@arr_phys).ceil %><br/>
+              <small><%= my_pluralize(median(@arr_phys).ceil, "Physician") %></small>
+            </li>
+            <% end %>
+            <% unless @arr_rads.blank? %>
+            <li><%= image_tag "Radiologist.png", :style => "width:100px; height:auto;" %><br/>
+              <%= median(@arr_rads).ceil  %><br/>
+              <small><%= my_pluralize(median(@arr_rads).ceil, "Radiologist") %></small>
+            </li>
+            <% end %>
+            <% unless @arr_paths.blank? %>
+            <li><%= image_tag "Pathologist.png", :style => "width:100px; height:auto;" %><br/>
+              <%= median(@arr_paths).ceil %><br/>
+              <small><%= my_pluralize(median(@arr_paths).ceil, "Pathologist") %></small>
+            </li>
+            <% end %>
+            <% unless @arr_rheum.blank? %><br/>
+            <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %><br/>
+              <%= median(@arr_rheum).ceil %>
+              <small><%= my_pluralize(median(@arr_rheum).ceil, "Rheumatologist") %></small>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+
+
+
+        <div class = "DataContainer">
+          <div id="container-practices"></div>
+        </div>
+
+        <div class = "DataContainer">
+          <div id="container-Institution"></div>
+        </div>
+
+        <div class = "DataContainer">
+          <div id="container-biopsy"></div>
+        </div>
+
     </div>
-    <div class = "NationComponents">
-      <ul>
-        <% unless @arr_phys.blank? %>
-        <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %><br/>
-          <%= median(@arr_phys).ceil %><br/>
-          <small><%= my_pluralize(median(@arr_phys).ceil, "Physician") %></small>
-        </li>
-        <% end %>
-        <% unless @arr_rads.blank? %>
-        <li><%= image_tag "Radiologist.png", :style => "width:100px; height:auto;" %><br/>
-          <%= median(@arr_rads).ceil  %><br/>
-          <small><%= my_pluralize(median(@arr_rads).ceil, "Radiologist") %></small>
-        </li>
-        <% end %>
-        <% unless @arr_paths.blank? %>
-        <li><%= image_tag "Pathologist.png", :style => "width:100px; height:auto;" %><br/>
-          <%= median(@arr_paths).ceil %><br/>
-          <small><%= my_pluralize(median(@arr_paths).ceil, "Pathologist") %></small>
-        </li>
-        <% end %>
-        <% unless @arr_rheum.blank? %><br/>
-        <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %><br/>
-          <%= median(@arr_rheum).ceil %>
-          <small><%= my_pluralize(median(@arr_rheum).ceil, "Rheumatologist") %></small>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-
-
-
-    <div class = "DataContainer">
-      <div id="container-practices"></div>
-    </div>
-
-    <div class = "DataContainer">
-      <div id="container-Institution"></div>
-    </div>
-
-    <div class = "DataContainer">
-      <div id="container-biopsy"></div>
-    </div>
-
+  </div>
 </div>
 
+<%= @value %>
 
 <script>
 
@@ -136,11 +142,10 @@
         text: ''
       },
       xAxis: {
-        categories: [
-          'I make the diagnosis myself with the aid of diagnostic guidelines',
-          'I make the diagnosis via a face-to-face MDT discussion',
-          'If IPF is being considered I/we refer to an expert/academic ILD centre',
-        ],
+        xAxis: {
+          type: 'category',
+          crosshair: true
+        },
         crosshair: true
       },
       yAxis: {
@@ -202,11 +207,7 @@
         text: ''
       },
       xAxis: {
-        categories: [
-          'Academic Institution',
-          'University affiliated Institution',
-          'Non-university Institution',
-        ],
+        type: 'category',
         crosshair: true
       },
       yAxis: {
