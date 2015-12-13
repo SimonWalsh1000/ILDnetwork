@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e1696879-90a1-4eea-bba1-ee4cea99ff5d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/country.html.erb" afterPath="$PROJECT_DIR$/app/views/users/country.html.erb" />
     </list>
     <ignored path="ers.iws" />
@@ -43,19 +44,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="country.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="country.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63198626">
-              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+            <state vertical-scroll-proportion="-28.125">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
-                <marker date="1450013939000" expanded="true" signature="2647:2681" placeholder="..." />
-                <marker date="1450013939000" expanded="true" signature="3916:3950" placeholder="..." />
-                <marker date="1450013939000" expanded="true" signature="4668:4682" placeholder="..." />
-                <marker date="1450013939000" expanded="true" signature="4741:4760" placeholder="..." />
-                <marker date="1450013939000" expanded="true" signature="5175:5209" placeholder="..." />
-                <marker date="1450013939000" expanded="true" signature="5847:5861" placeholder="..." />
-                <marker date="1450013939000" expanded="true" signature="5916:5935" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="2708:2742" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="3977:4011" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="4729:4743" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="4802:4821" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="5236:5270" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="5908:5922" placeholder="..." />
+                <marker date="1450030211000" expanded="true" signature="5977:5996" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -84,18 +85,18 @@
       <file leaf-file-name="users.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.75">
-              <caret line="174" column="14" selection-start-line="174" selection-start-column="14" selection-end-line="174" selection-end-column="14" />
+            <state vertical-scroll-proportion="-44.375">
+              <caret line="187" column="23" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="7" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.4439764">
+              <caret line="111" column="105" selection-start-line="111" selection-start-column="105" selection-end-line="111" selection-end-column="105" />
               <folding />
             </state>
           </provider>
@@ -187,11 +188,11 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/admin/census.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
         <option value="$PROJECT_DIR$/app/views/users/country.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       </list>
     </option>
   </component>
@@ -1066,14 +1067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="7" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/network.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.375">
@@ -1086,25 +1079,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75">
-          <caret line="174" column="14" selection-start-line="174" selection-start-column="14" selection-end-line="174" selection-end-column="14" />
+        <state vertical-scroll-proportion="-44.375">
+          <caret line="187" column="23" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63198626">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        <state vertical-scroll-proportion="-28.125">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
-            <marker date="1450013939000" expanded="true" signature="2647:2681" placeholder="..." />
-            <marker date="1450013939000" expanded="true" signature="3916:3950" placeholder="..." />
-            <marker date="1450013939000" expanded="true" signature="4668:4682" placeholder="..." />
-            <marker date="1450013939000" expanded="true" signature="4741:4760" placeholder="..." />
-            <marker date="1450013939000" expanded="true" signature="5175:5209" placeholder="..." />
-            <marker date="1450013939000" expanded="true" signature="5847:5861" placeholder="..." />
-            <marker date="1450013939000" expanded="true" signature="5916:5935" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="2708:2742" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="3977:4011" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="4729:4743" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="4802:4821" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="5236:5270" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="5908:5922" placeholder="..." />
+            <marker date="1450030211000" expanded="true" signature="5977:5996" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4439764">
+          <caret line="111" column="105" selection-start-line="111" selection-start-column="105" selection-end-line="111" selection-end-column="105" />
+          <folding />
         </state>
       </provider>
     </entry>

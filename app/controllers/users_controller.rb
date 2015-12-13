@@ -105,11 +105,11 @@ class UsersController < ApplicationController
     @user_count_country = User.select { |u| u.user_complete == true && u.country == @nation }.count
     @nation_practices =  User.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
     @nation_institutions =  User.where(country: @nation).group('institute_type').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
-    @nation_biopsy =  User
-                          .where(country: @nation)
-                          .group_by{ |u| u.institute_type}
-                          .map {|i,o| ["name" => i,  "y" => User.where(id: o.map(&:id)).sum("biopsy")/o.count, "n" => o.count]}
-                          .flatten.to_json
+    @nation_biopsy =
+            User.where(country: @nation)
+            .group(:institute_type)
+            .select(:institute_type, "AVG(biopsy) AS biopsy_count")
+            .flat_map { |group| ["name" => group.institute_type, "y" => group.biopsy_count.ceil]}.to_json
 
     @arr_phys = Array.new
     Physician.all.reject {|p| p.user.nil?}.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
