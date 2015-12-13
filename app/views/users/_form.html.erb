@@ -75,22 +75,53 @@
         </div>
 
 <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <div class = "row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="page-header">
+              <h3>C. MDT activity<br/><small> Please answer all questions.</small></h3>
+            </div>
+          </div>
+
+
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 ">
+
+
+            <div class="field">
+              <%= f.input :specialist, collection: ["ILD dedicated MDT meeting", "General respiratory MDT meeting", "We don't have a formal respiratory MDT meeting"] , label: "Which best describes your MDT meeting?", class: 'form-control'%>
+            </div><br/>
+
+            <div class="field">
+              <%= f.input :imaging, collection: ["Yes", "Not directly, but in my network", "No"] , label: "Do you have access to expert ILD radiology input?", class: 'form-control'%>
+            </div><br/>
+
+            <div class="field">
+              <%= f.input :histopathology, collection: ["Yes", "Not directly, but in my network", "No"] , label: "Do you have access to expert ILD histopathology input?", class: 'form-control'%>
+            </div><br/>
+
+            <div class="field">
+              <%= f.input :teleimaging, collection: ["Yes", "No"] , label: "Do you ever use teleconferencing to get an expert RADIOLOGIST'S opinion?", class: 'form-control'%>
+            </div><br/>
+
+            <div class="field">
+              <%= f.input :telepath, collection: ["Yes", "No"] , label: "Do you ever use teleconferencing to get an expert PATHOLOGIST'S opinion?", class: 'form-control'%>
+            </div><br/>
+
+
+          </div>
+        </div>
+
+
+  <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
         <div class = "row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-header">
-                  <h3>C. Other MDT participants<br/><small> Please answer all questions. To add a member, click on relevant specialty and add details in the created fields. <b>"Add new participant"</b> is for
+                  <h3>D. Other MDT participants<br/><small> Please answer all questions. To add a member, click on relevant specialty and add details in the created fields. <b>"Add new participant"</b> is for
                   adding a specialty that's not listed e.g. a geneticist, or ILD nurse. Please give details of this participant in the free text field created when
                     you press <b>"Add new participant"</b></small></h3>
                 </div>
             </div>
-          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 ">
 
-
-                  <div class="field">
-                    <%= f.input :specialist, collection: ["ILD dedicated MDT meeting", "General respiratory MDT meeting", "We don't have a formal respiratory MDT meeting"] , label: "Which best describes your MDT meeting?", class: 'form-control'%>
-                  </div><br/>
-          </div>
 
         <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 ">
 
@@ -137,7 +168,7 @@
         <div class = "row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
            <div class="page-header">
-            <h3>D. MDT case mix<br/><small> Please answer all questions. Note that there are no default values. If your
+            <h3>E. MDT case mix<br/><small> Please answer all questions. Note that there are no default values. If your
             answer is "0" then you must explictly select "0". This is to ensure all questions are considered. "%" means an estimate of
             the proportion of cases seen by your MDT (or you, if you do not have a dedicated MDT) with each diagnosis. </small></h3>
            </div>

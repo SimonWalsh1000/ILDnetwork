@@ -73,6 +73,14 @@ class User < ActiveRecord::Base
   validate :check_participants, :on => :update
 
   validate :user_participants_for_mdt, :on => :update
+  
+  validate :user_imaging, :on => :update
+
+  validate :user_histopathology, :on => :update
+
+  validate :user_teleimage, :on => :update
+
+  validate :user_telepath, :on => :update
 
 
   def user_practice
@@ -108,55 +116,72 @@ class User < ActiveRecord::Base
   end
 
   def user_cases
-    errors.add(:base, 'Please answer Section D."Number of new cases of ILD per month (approx)?"') if self.cases.blank?
+    errors.add(:base, 'Please answer Section E."Number of new cases of ILD per month (approx)?"') if self.cases.blank?
   end
 
   def user_ipf
-    errors.add(:base, 'Please answer Section D."Number of new cases of IPF per month (approx)"') if self.ipf.blank?
+    errors.add(:base, 'Please answer Section E."Number of new cases of IPF per month (approx)"') if self.ipf.blank?
   end
 
   def user_biopsy
-    errors.add(:base, 'Please answer Section D."Percentage of patients biopsied (approx)"') if self.biopsy.blank?
+    errors.add(:base, 'Please answer Section E."Percentage of patients biopsied (approx)"') if self.biopsy.blank?
   end
 
   def user_cryobiopsy
-    errors.add(:base, 'Please answer Section D."Availability of cryobiopsy"') if self.cryobiopsy.blank?
+    errors.add(:base, 'Please answer Section E."Availability of cryobiopsy"') if self.cryobiopsy.blank?
   end
 
   def user_nonild
-    errors.add(:base, 'Please answer Section D."Proportion of non-ILD patients (0 if you see none)"') if self.nonild.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of non-ILD patients (0 if you see none)"') if self.nonild.blank?
   end
 
   def user_iippatients
-    errors.add(:base, 'Please answer Section D."Proportion of non-IPF IIP patients (0 if you see none)"') if self.iippatients.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of non-IPF IIP patients (0 if you see none)"') if self.iippatients.blank?
   end
 
   def user_ipfpatients
-    errors.add(:base, 'Please answer Section D."Proportion of IPF patients (0 if you see none)"') if self.ipfpatients.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of IPF patients (0 if you see none)"') if self.ipfpatients.blank?
   end
 
   def user_hppatients
-    errors.add(:base, 'Please answer Section D."Proportion of HP patients (0 if you see none)"') if self.hppatients.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of HP patients (0 if you see none)"') if self.hppatients.blank?
   end
 
   def user_sarcoidpatients
-    errors.add(:base, 'Please answer Section D."Proportion of sarcoidosis patients (0 if you see none)"') if self.sarcoidpatients.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of sarcoidosis patients (0 if you see none)"') if self.sarcoidpatients.blank?
   end
 
   def user_ctdpatients
-    errors.add(:base, 'Please answer Section D."Proportion of CTD-ILD patients (0 if you see none)"') if self.ctdpatients.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of CTD-ILD patients (0 if you see none)"') if self.ctdpatients.blank?
   end
 
   def user_unclasspatients
-    errors.add(:base, 'Please answer Section D."Proportion of unclassifiable ILD patients (0 if you see none)"') if self.unclasspatients.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of unclassifiable ILD patients (0 if you see none)"') if self.unclasspatients.blank?
   end
 
   def user_other
-    errors.add(:base, 'Please answer Section D."Proportion of other patients (select 0 if not applicable)"') if self.other.blank?
+    errors.add(:base, 'Please answer Section E."Proportion of other patients (select 0 if not applicable)"') if self.other.blank?
   end
 
   def user_record
-    errors.add(:base, 'Please answer Section D."Do you routinely record MDT outcome?"') if self.document.blank?
+    errors.add(:base, 'Please answer Section E."Do you routinely record MDT outcome?"') if self.document.blank?
+  end
+
+
+  def user_imaging
+    errors.add(:base, 'Please answer Section C."Do you have access to expert ILD radiology input?"') if self.imaging.blank?
+  end
+
+  def user_histopathology
+    errors.add(:base, 'Please answer Section C."Do you have access to expert ILD histopathology input?"') if self.histopathology.blank?
+  end
+
+  def user_teleimage
+    errors.add(:base, 'Please answer Section C."Do you ever use teleconferencing to get an expert radiologist\'s opinion?"') if self.teleimaging.blank?
+  end
+
+  def user_telepath
+    errors.add(:base, 'Please answer Section C."Do you ever use teleconferencing to get an expert pathologist\'s opinion?"') if self.telepath.blank?
   end
 
 

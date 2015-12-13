@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208092724) do
+ActiveRecord::Schema.define(version: 20151213120557) do
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -102,6 +102,11 @@ ActiveRecord::Schema.define(version: 20151208092724) do
     t.string   "document"
     t.string   "admin"
     t.boolean  "skip"
+    t.string   "imaging"
+    t.string   "histopathology"
+    t.string   "teleconference"
+    t.string   "teleimaging"
+    t.string   "telepath"
   end
 
   create_table "visits", force: :cascade do |t|
