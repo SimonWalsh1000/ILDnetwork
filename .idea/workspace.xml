@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1696879-90a1-4eea-bba1-ee4cea99ff5d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/country.html.erb" afterPath="$PROJECT_DIR$/app/views/users/country.html.erb" />
     </list>
     <ignored path="ers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,29 +40,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="users.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.045571797">
-              <caret line="140" column="16" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+            <state vertical-scroll-proportion="-10.333333">
+              <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="country.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="country.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25">
-              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.72227">
+              <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
               <folding>
-                <marker date="1450006552000" expanded="true" signature="2642:2676" placeholder="..." />
-                <marker date="1450006552000" expanded="true" signature="3911:3945" placeholder="..." />
-                <marker date="1450006552000" expanded="true" signature="4663:4677" placeholder="..." />
-                <marker date="1450006552000" expanded="true" signature="4736:4755" placeholder="..." />
-                <marker date="1450006552000" expanded="true" signature="5170:5204" placeholder="..." />
-                <marker date="1450006552000" expanded="true" signature="5842:5856" placeholder="..." />
-                <marker date="1450006552000" expanded="true" signature="5911:5930" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="2647:2681" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="3916:3950" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="4668:4682" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="4741:4760" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="5175:5209" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="5847:5861" placeholder="..." />
+                <marker date="1450007594000" expanded="true" signature="5916:5935" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -163,10 +163,10 @@
         <option value="$PROJECT_DIR$/app/views/users/network.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/users/country.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/admin/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
         <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/app/views/users/country.html.erb" />
       </list>
     </option>
   </component>
@@ -1006,22 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-          <folding>
-            <marker date="1450006552000" expanded="true" signature="2642:2676" placeholder="..." />
-            <marker date="1450006552000" expanded="true" signature="3911:3945" placeholder="..." />
-            <marker date="1450006552000" expanded="true" signature="4663:4677" placeholder="..." />
-            <marker date="1450006552000" expanded="true" signature="4736:4755" placeholder="..." />
-            <marker date="1450006552000" expanded="true" signature="5170:5204" placeholder="..." />
-            <marker date="1450006552000" expanded="true" signature="5842:5856" placeholder="..." />
-            <marker date="1450006552000" expanded="true" signature="5911:5930" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -1072,9 +1056,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.045571797">
-          <caret line="140" column="16" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+        <state vertical-scroll-proportion="-10.333333">
+          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72227">
+          <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+          <folding>
+            <marker date="1450007594000" expanded="true" signature="2647:2681" placeholder="..." />
+            <marker date="1450007594000" expanded="true" signature="3916:3950" placeholder="..." />
+            <marker date="1450007594000" expanded="true" signature="4668:4682" placeholder="..." />
+            <marker date="1450007594000" expanded="true" signature="4741:4760" placeholder="..." />
+            <marker date="1450007594000" expanded="true" signature="5175:5209" placeholder="..." />
+            <marker date="1450007594000" expanded="true" signature="5847:5861" placeholder="..." />
+            <marker date="1450007594000" expanded="true" signature="5916:5935" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

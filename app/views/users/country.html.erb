@@ -44,7 +44,7 @@
             <% end %>
             <% unless @arr_rheum.blank? %><br/>
             <li><%= image_tag "Physician.png", :style => "width:100px; height:auto;" %><br/>
-              <%= median(@arr_rheum).ceil %>
+              <%= median(@arr_rheum).ceil %><br/>
               <small><%= my_pluralize(median(@arr_rheum).ceil, "Rheumatologist") %></small>
             </li>
             <% end %>
