@@ -6,7 +6,7 @@
 
         <div class="f32">
           <div class="page-header">
-            <h3><span class="flag <%= @iso %>"></span><%= @nation %></h3>
+            <h2><span class="flag <%= @iso %>"></span><%= @nation %></h2>
           </div>
         </div>
 
@@ -73,7 +73,7 @@
 
   $(document).ready(function () {
 
-    var data = <%=raw @nation_institutions %>;
+    var data = <%=raw @nation_institutions %>
 
 
     // Institutions
@@ -121,7 +121,18 @@
         // practices
 
 
-        var data = <%=raw @nation_practices %>;
+    var data = <%=raw @nation_practices %>;
+
+    data.forEach(function(obj) {
+      if(obj.name == "1"){
+        obj.name = "I make the diagnosis myself with the aid of diagnostic guidelines"
+      } else if(obj.name == "2"){
+        obj.name = "I make the diagnosis via a face-to-face MDT discussion"
+      } else {
+        obj.name = "If IPF is being considered I/we refer to an expert/academic ILD centre"
+      }
+      obj = JSON.stringify([obj]);
+    });
 
 
 
@@ -134,17 +145,18 @@
       },
       title : {
         useHTML: true,
-        text : '<div style = "margin:40px 0px; font-size: 0.8em;">Diagnostic approach for IPF</div>'
+        text : '<div style = "margin:40px 0px; font-size: 0.8em;">Diagnostic approach for IPF (hover over columns to see data)</div>'
       },
       subtitle: {
         text: ''
       },
       xAxis: {
-        xAxis: {
-          type: 'category',
+          categories: [
+            '',
+            '',
+            ''
+          ],
           crosshair: true
-        },
-        crosshair: true
       },
       yAxis: {
         title: {

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1696879-90a1-4eea-bba1-ee4cea99ff5d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/country.html.erb" afterPath="$PROJECT_DIR$/app/views/users/country.html.erb" />
     </list>
     <ignored path="ers.iws" />
@@ -34,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+              <caret line="109" column="58" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -53,16 +55,16 @@
       <file leaf-file-name="country.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17454858">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.16766982">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
-                <marker date="1450000098000" expanded="true" signature="2620:2654" placeholder="..." />
-                <marker date="1450000098000" expanded="true" signature="3477:3511" placeholder="..." />
-                <marker date="1450000098000" expanded="true" signature="4192:4206" placeholder="..." />
-                <marker date="1450000098000" expanded="true" signature="4265:4284" placeholder="..." />
-                <marker date="1450000098000" expanded="true" signature="4699:4733" placeholder="..." />
-                <marker date="1450000098000" expanded="true" signature="5371:5385" placeholder="..." />
-                <marker date="1450000098000" expanded="true" signature="5440:5459" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="2619:2653" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="3888:3922" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="4640:4654" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="4713:4732" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="5147:5181" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="5819:5833" placeholder="..." />
+                <marker date="1450006476000" expanded="true" signature="5888:5907" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -134,8 +136,8 @@
         <option value="$PROJECT_DIR$/app/helpers/users_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/users/network.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/country.html.erb" />
       </list>
     </option>
@@ -146,9 +148,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="759" />
-    <option name="y" value="23" />
-    <option name="width" value="1769" />
+    <option name="x" value="725" />
+    <option name="y" value="66" />
+    <option name="width" value="1698" />
     <option name="height" value="1258" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -583,10 +585,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="759" y="23" width="1769" height="1258" extended-state="0" />
+    <frame x="725" y="66" width="1698" height="1258" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20915772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21790342" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839507" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1011,23 +1013,23 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <caret line="109" column="58" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/country.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17454858">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16766982">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <marker date="1450000098000" expanded="true" signature="2620:2654" placeholder="..." />
-            <marker date="1450000098000" expanded="true" signature="3477:3511" placeholder="..." />
-            <marker date="1450000098000" expanded="true" signature="4192:4206" placeholder="..." />
-            <marker date="1450000098000" expanded="true" signature="4265:4284" placeholder="..." />
-            <marker date="1450000098000" expanded="true" signature="4699:4733" placeholder="..." />
-            <marker date="1450000098000" expanded="true" signature="5371:5385" placeholder="..." />
-            <marker date="1450000098000" expanded="true" signature="5440:5459" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="2619:2653" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="3888:3922" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="4640:4654" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="4713:4732" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="5147:5181" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="5819:5833" placeholder="..." />
+            <marker date="1450006476000" expanded="true" signature="5888:5907" placeholder="..." />
           </folding>
         </state>
       </provider>

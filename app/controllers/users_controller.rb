@@ -104,11 +104,6 @@ class UsersController < ApplicationController
     @user_country_array = Array.new
     @user_count_country = User.select { |u| u.user_complete == true && u.country == @nation }.count
     @nation_practices =  User.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
-
-
-    @value = User.where(country: @nation).group('practice').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
-
-
     @nation_institutions =  User.where(country: @nation).group('institute_type').count.map { |k,v| [ "name" => k, "y" => v] unless k.nil?}.reject { |a| a.blank? }.flatten.to_json
     @nation_biopsy =  User
                           .where(country: @nation)
