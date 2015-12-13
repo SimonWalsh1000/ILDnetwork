@@ -25,6 +25,6 @@ module Ers
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.field_error_proc = Proc.new {|html, instance| html}
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
   end
 end
