@@ -17,7 +17,13 @@
         <ul class="nav navbar-nav navbar-right">
           <% if member_signed_in? %>
               <% if current_user.admin == "true" && current_user.member.email == "slfwalsh@gmail.com" %>
-                  <li><%=link_to "Admin", admin_users_path %></li>
+                  <li class="Admin">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><%=link_to "IP data", admin_users_path %></li>
+                      <li><%=link_to "Email data", census_users_path %></li>
+                    </ul>
+                  </li>
               <% end %>
               <% if current_user.user_complete %>
                 <li><%=link_to "View network", network_user_path(current_user) %></li>

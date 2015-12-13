@@ -131,6 +131,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def census
+    if current_user.admin?
+      @users = User.all
+      render 'users/admin/census'
+    else
+      sign_out_and_redirect(current_member)
+    end
+  end
+
   private
 
     def check_complete

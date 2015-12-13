@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     collection do
       get :admin
+      get :census
     end
 
     resources :physicians

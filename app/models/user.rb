@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
   validate :check_participants, :on => :update
 
   validate :user_participants_for_mdt, :on => :update
-  
+
   validate :user_imaging, :on => :update
 
   validate :user_histopathology, :on => :update
