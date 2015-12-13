@@ -179,10 +179,12 @@ html {
     padding: 0px !important;
     margin: 0px auto;
     display: table;
+    list-style: none;
   }
 
   li {
-    display: table-cell !important;
+    padding: 15px;
+    float: left;
     text-align: center;
     vertical-align: middle;
     font-size: 1.3em;
