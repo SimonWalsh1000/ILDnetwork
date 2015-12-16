@@ -203,6 +203,13 @@ html {
 
 @media (max-width: 991px) {
 
+
+  .AdminEmailDataSmall {
+    td {
+      font-size: 0.8em !important;
+    }
+  }
+
   .CaseMixInputs {
     padding: 0px 15px;
     margin-bottom: 20px;
