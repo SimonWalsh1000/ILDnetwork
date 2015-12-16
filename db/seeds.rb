@@ -17,7 +17,7 @@ countries = [["Andorra", "AD"], ["United Arab Emirates", "AE"], ["Afghanistan", 
     country = countries[index][0]
     iso = countries[index][1]
     params = { :member => {
-        :email => "example-#{n+17001015}@example.org",
+        :email => "example-#{n+17001015111}@example.org",
         :password => "fidelio",
         :password_confirmation => "fidelio",
       }
@@ -27,9 +27,9 @@ countries = [["Andorra", "AD"], ["United Arab Emirates", "AE"], ["Afghanistan", 
 
     user = member.user
 
-      schedule = [ "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"]
+    schedule = [ "Daily", "Weekly", "Fortnightly", "Monthly", "Every 2 months", "Every 3 months", "Less frequently than every 3 months"]
 
-      kind = [ "General", "Expert", "Novice"]
+    kind = [ "General", "Expert", "Novice"]
 
     inst = [ "Non-university hospital", "University hospital", "Academic institution"]
 
@@ -53,6 +53,11 @@ countries = [["Andorra", "AD"], ["United Arab Emirates", "AE"], ["Afghanistan", 
         :biopsy => rand(0..20),
         :cryobiopsy => "no",
         :other => 0,
+        :imaging => "yes",
+        :histopathology => "yes",
+        :teleconference => "yes",
+        :teleimaging => "yes",
+        :telepath => "yes",
         :document => "yes",
         :ipf => "10-20",
         :institute_type => inst[rand(0..2)],
@@ -60,51 +65,40 @@ countries = [["Andorra", "AD"], ["United Arab Emirates", "AE"], ["Afghanistan", 
         :cases => rand(0..100)
       }
     }
-
-    physician = Physician.new
-
     user.update!(params[:user])
 
-    params = { :physician => {
-        :experience => rand(0..40),
-        :kind => kind[rand(0..2)],
-        :user_id => user.id
-      }
-    }
+    rand(0..2).times do |n|
+        physician = Physician.new
+        params = { :physician => {
+            :experience => rand(0..40),
+            :kind => kind[rand(0..2)],
+            :user_id => user.id
+          }
+        }
+        physician.update!(params[:physician])
+    end
 
-    physician.update!(params[:physician])
-
-
-
-
-
+    rand(0..2).times do |n|
     r = Rad.new
-
-    params = { :r => {
-        :experience => rand(0..40),
-        :kind => kind[rand(0..2)],
-        :user_id => user.id
+        params = { :r => {
+            :experience => rand(0..40),
+            :kind => kind[rand(0..2)],
+            :user_id => user.id
+        }
     }
-    }
-
     r.update!(params[:r])
+    end
 
-
-
-
-
-    path = Path.new
-
-
-    params = { :path => {
-        :experience => rand(0..40),
-        :kind => kind[rand(0..2)],
-        :user_id => user.id
-    }
-    }
-
-    path.update!(params[:path])
-
+    rand(0..2).times do |n|
+        path = Path.new
+            params = { :path => {
+                :experience => rand(0..40),
+                :kind => kind[rand(0..2)],
+                :user_id => user.id
+            }
+        }
+        path.update!(params[:path])
+    end
 
 end
 

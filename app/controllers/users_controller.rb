@@ -111,14 +111,26 @@ class UsersController < ApplicationController
             .select(:institute_type, "AVG(biopsy) AS biopsy_count")
             .flat_map { |group| ["name" => group.institute_type, "y" => group.biopsy_count.ceil]}.to_json
 
-    @arr_phys = Array.new
-    Physician.all.reject {|p| p.user.nil?}.map { |p| p.user if p.user.country == @nation && p.user }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_phys << v}
+    # Get rads
     @arr_rads = Array.new
-    Rad.all.reject {|p| p.user.nil?}.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rads << v}
+    @test = User.all.map{ |u| u if u.country == @nation }.reject {|u| u.nil?}.each do |u|
+      u.rads ? @arr_rads << u.rads.count : 0
+    end
+    # Get physicians
+    @arr_phys = Array.new
+    @test = User.all.map{ |u| u if u.country == @nation }.reject {|u| u.nil?}.each do |u|
+      u.physicians.any? ? @arr_phys << u.physicians.count : 0
+    end
+    # Get pathologists
     @arr_paths = Array.new
-    Path.all.reject {|p| p.user.nil?}.map { |u| u.user if u.user.country == @nation }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_paths << v}
+    @test = User.all.map{ |u| u if u.country == @nation }.reject {|u| u.nil?}.each do |u|
+      u.paths.any? ? @arr_paths << u.paths.count : 0
+    end
+    # Get rheumatologists
     @arr_rheum = Array.new
-    Rheumatologist.all.reject {|p| p.user.nil?}.select { |u| u.user.country == @nation}.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }.select { |u, v| @arr_rheum << v}
+    @test = User.all.map{ |u| u if u.country == @nation }.reject {|u| u.nil?}.each do |u|
+      u.rheumatologists.any? ? @arr_rheum << u.rheumatologists.count : 0
+    end
     render 'country'
   end
 
