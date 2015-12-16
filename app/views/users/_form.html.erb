@@ -43,7 +43,8 @@
         <div class = "row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-header">
-                  <h3>B. Your details <br/><small> Please answer all questions</small></h3>
+                  <h3>B. Your details <br/><small> Please answer all questions. Please also note that the option "Academic institution" is for <b>academic-only centres</b> (i.e. centres not directly linked to a hospital). If you work in a university hospital
+                  select <b>"University hospital"</b></small></h3>
                 </div>
             </div>
 
@@ -64,7 +65,7 @@
               </div><br/>
 
                 <div class="field">
-                  <%= f.input :institute_type, collection: ["Academic institution (Not hospital)", "University hospital", "Non-university hospital" ] , label: "What type of institution is this?", class: 'form-control'%>
+                  <%= f.input :institute_type, collection: ["Academic institution", "University hospital", "Non-university hospital" ] , label: "What type of institution is this?", class: 'form-control'%>
                 </div><br/>
 
                 <div class="field">
