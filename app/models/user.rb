@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  default_scope -> { order(:created_at => :desc) }
+
   belongs_to :member
 
   has_many :paths
