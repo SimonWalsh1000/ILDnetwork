@@ -8,6 +8,7 @@
 html {
   min-height: 1500px;
   font-size: 100%;
+  letter-spacing: -0.5px;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
 
 .Logo {
   font-size: 1.6em !important;
+  letter-spacing: -1px;
 }
 
 .SubmitData {
@@ -173,7 +175,7 @@ body {
 
 .DataContainer {
   margin:50px auto;
-  max-width: 800px;
+  max-width: 500px;
 }
 
 .NationComponents {
